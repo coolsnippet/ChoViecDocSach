@@ -1,5 +1,5 @@
---temp-output:C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\net461\
---out:C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\bin\Debug\net461\ChoViecDocSach.exe
+--temp-output:c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\net461\
+--out:c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\bin\Debug\net461\ChoViecDocSach.exe
 --define:DEBUG
 --define:TRACE
 --define:NET461
@@ -8,6 +8,7 @@
 --suppress-warning:CS1705
 --platform:x64
 --optimize:False
+--debug-type:portable
 --emit-entry-point:True
 --output-name:ChoViecDocSach
 --file-version:1.0.0.0
@@ -175,7 +176,7 @@
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.ServiceModel.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Numerics.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Runtime.Serialization.dll
---resource:"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\net461\ChoViecDocSachdotnet-compile.deps.json",ChoViecDocSach.deps.json
-C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Program.cs
-C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Startup.cs
-C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Controllers\HomeController.cs
+--resource:"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\net461\ChoViecDocSachdotnet-compile.deps.json",ChoViecDocSach.deps.json
+c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Program.cs
+c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Startup.cs
+c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Controllers\HomeController.cs

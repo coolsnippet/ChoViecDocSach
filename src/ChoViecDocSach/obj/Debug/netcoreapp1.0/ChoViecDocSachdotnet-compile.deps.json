@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "dc0662ca27d2281e15f502cff32eb2f41886b32a"
+    "signature": "235fa87cbfaa425d133f9330edeb7a636abde9aa"
   },
   "compilationOptions": {
     "defines": [
@@ -10,13 +10,15 @@
       "NETCOREAPP1_0"
     ],
     "optimize": false,
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "debugType": "portable"
   },
   "targets": {
     ".NETCoreApp,Version=v1.0": {
       "ChoViecDocSach/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.1",
+          "ChoViecDocSach.Console": "1.0.0",
           "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
@@ -35,6 +37,22 @@
         },
         "compile": {
           "ChoViecDocSach.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -2616,6 +2634,9 @@
           "System.Runtime.Extensions": "4.1.0",
           "System.Threading": "4.0.11",
           "System.Xml.ReaderWriter": "4.0.11"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Xml.XPath.dll": {}
         }
       },
       "System.Xml.XPath.XDocument/4.0.1": {
@@ -2630,12 +2651,23 @@
           "System.Xml.XDocument": "4.0.11",
           "System.Xml.XPath": "4.0.1"
         }
+      },
+      "ChoViecDocSach.Console/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0"
+        },
+        "compile": {
+          "ChoViecDocSach.Console.dll": {}
+        }
       }
     },
     ".NETCoreApp,Version=v1.0/": {
       "ChoViecDocSach/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.1",
+          "ChoViecDocSach.Console": "1.0.0",
           "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
           "Microsoft.AspNetCore.Mvc": "1.0.1",
@@ -2654,6 +2686,22 @@
         },
         "runtime": {
           "ChoViecDocSach.dll": {}
+        }
+      },
+      "HtmlAgilityPack.NetCore/1.5.0.1": {
+        "dependencies": {
+          "System.Collections": "4.0.11",
+          "System.Diagnostics.Debug": "4.0.11",
+          "System.Linq": "4.1.0",
+          "System.Runtime": "4.1.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Runtime.InteropServices": "4.1.0",
+          "System.Text.RegularExpressions": "4.1.0",
+          "System.Threading": "4.0.11",
+          "System.Xml.XPath": "4.0.1"
+        },
+        "runtime": {
+          "lib/netstandard1.3/HtmlAgilityPack.NetCore.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -5150,6 +5198,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "ChoViecDocSach.Console/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.1",
+          "HtmlAgilityPack.NetCore": "1.5.0.1",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0"
+        },
+        "runtime": {
+          "ChoViecDocSach.Console.dll": {}
+        }
       }
     }
   },
@@ -5158,6 +5216,11 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "HtmlAgilityPack.NetCore/1.5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4rl5hUO6uIKPXeJ5nAJ9SRqTTlDcufQkoQYPI45xgizGvz8JWgGNN4p1uHm8fL9CZzH0I1cV9HEoOJBD8w5y7w=="
     },
     "Libuv/1.9.0": {
       "type": "package",
@@ -6118,6 +6181,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-lLb1DE1+DF2WBPN8UqfqCdxgtPQHRVxJeWLP/qR54fQafznsK8XrEdx5XD6/k8sxgrmcpFNVnmarWIJ/eF2uoA=="
+    },
+    "ChoViecDocSach.Console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

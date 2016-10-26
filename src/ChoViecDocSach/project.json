@@ -37,17 +37,24 @@
         "Microsoft.NETCore.App": {
           "version": "1.0.1",
           "type": "platform"
-        }        
+        },        
+        "ChoViecDocSach.Console": "1.0.0"        
+      },
+      "buildOptions": {
+        "debugType": "portable"
       }
     },
     "net461": {
-
+        "dependencies": {            
+          "ChoViecDocSach.Console": "1.0.0"  
+        }   
     }
   },
 
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+     "debugType": "portable"
   },
 
   "runtimeOptions": {
@@ -68,5 +75,6 @@
   "scripts": {
     "prepublish": [ "bower install", "dotnet bundle" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
-  }
+  },
+  "version": "1.0.0-*"
 }

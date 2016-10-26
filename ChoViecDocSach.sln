@@ -12,6 +12,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ChoViecDocSach", "src\ChoViecDocSach\ChoViecDocSach.xproj", "{A5D3EF34-52BC-4103-8E57-48DB89CAC421}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ChoViecDocSach.Console", "src\ChoViecDocSach.Console\ChoViecDocSach.Console.xproj", "{10ADA164-EDC9-4176-8F86-7D828445397C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChoViecDocSach.ChromeExtension", "ChoViecDocSach.ChromeExtension", "{7C600189-F6D4-4588-B2AB-C831345C20E7}"
+	ProjectSection(SolutionItems) = preProject
+		src\ChoViecDocSach.ChromeExtension\icon.png = src\ChoViecDocSach.ChromeExtension\icon.png
+		src\ChoViecDocSach.ChromeExtension\manifest.json = src\ChoViecDocSach.ChromeExtension\manifest.json
+		src\ChoViecDocSach.ChromeExtension\popup.html = src\ChoViecDocSach.ChromeExtension\popup.html
+		src\ChoViecDocSach.ChromeExtension\popup.js = src\ChoViecDocSach.ChromeExtension\popup.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +32,17 @@ Global
 		{A5D3EF34-52BC-4103-8E57-48DB89CAC421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5D3EF34-52BC-4103-8E57-48DB89CAC421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5D3EF34-52BC-4103-8E57-48DB89CAC421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10ADA164-EDC9-4176-8F86-7D828445397C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10ADA164-EDC9-4176-8F86-7D828445397C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10ADA164-EDC9-4176-8F86-7D828445397C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10ADA164-EDC9-4176-8F86-7D828445397C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A5D3EF34-52BC-4103-8E57-48DB89CAC421} = {6628F664-8229-408F-9747-7A632326F1F1}
+		{10ADA164-EDC9-4176-8F86-7D828445397C} = {6628F664-8229-408F-9747-7A632326F1F1}
+		{7C600189-F6D4-4588-B2AB-C831345C20E7} = {6628F664-8229-408F-9747-7A632326F1F1}
 	EndGlobalSection
 EndGlobal

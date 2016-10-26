@@ -11,7 +11,8 @@
     ],
     "platform": "x64",
     "optimize": false,
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "debugType": "portable"
   },
   "targets": {
     ".NETFramework,Version=v4.6.1": {
