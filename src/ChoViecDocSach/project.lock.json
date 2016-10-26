@@ -3899,15 +3899,7 @@
         "dependencies": {
           "HtmlAgilityPack.NetCore": "1.5.0.1",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
-          "Microsoft.NETCore.App": "1.0.1",
-          "System.Collections": "4.0.11",
-          "System.Diagnostics.Process": "4.1.0",
-          "System.Linq": "4.1.0",
-          "System.Net.Http": "4.1.0",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Threading.Tasks": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
+          "Microsoft.NETCore.App": "1.0.1"
         },
         "compile": {
           "netcoreapp1.0/ChoViecDocSach.Console.dll": {}
@@ -6136,6 +6128,18 @@
           "lib/netstandard1.0/System.Text.Encodings.Web.dll": {}
         }
       },
+      "System.Text.RegularExpressions/4.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System"
+        ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
       "System.Threading/4.0.11": {
         "type": "package",
         "frameworkAssemblies": [
@@ -6189,6 +6193,15 @@
         },
         "runtime": {
           "lib/net46/System.Threading.Thread.dll": {}
+        }
+      },
+      "System.Xml.Linq/3.5.21022.801": {
+        "type": "package",
+        "compile": {
+          "lib/net20/System.Xml.Linq.dll": {}
+        },
+        "runtime": {
+          "lib/net20/System.Xml.Linq.dll": {}
         }
       },
       "System.Xml.ReaderWriter/4.0.11": {
@@ -6270,8 +6283,10 @@
           "System.Net.Http": "4.1.0",
           "System.Runtime": "4.1.0",
           "System.Runtime.Extensions": "4.1.0",
+          "System.Text.Encoding": "4.0.11",
+          "System.Text.RegularExpressions": "4.1.0",
           "System.Threading.Tasks": "4.0.11",
-          "System.Xml.XDocument": "4.0.11"
+          "System.Xml.Linq": "3.5.21022.801"
         },
         "compile": {
           "net461/ChoViecDocSach.Console.dll": {}
@@ -12421,6 +12436,16 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "System.Xml.Linq/3.5.21022.801": {
+      "sha512": "U6hdQ1sCnMD/s2zqKl23g4Obdovr1ZUnrF1x+NRpaoZBeZX5PSwcp1dgvgvJaRsYZgwUzrC+tj9klb0mMnHUcQ==",
+      "type": "package",
+      "path": "System.Xml.Linq/3.5.21022.801",
+      "files": [
+        "System.Xml.Linq.3.5.21022.801.nupkg.sha512",
+        "System.Xml.Linq.nuspec",
+        "lib/net20/System.Xml.Linq.dll"
       ]
     },
     "System.Xml.ReaderWriter/4.0.11": {

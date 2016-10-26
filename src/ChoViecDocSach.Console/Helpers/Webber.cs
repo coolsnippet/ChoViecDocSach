@@ -13,17 +13,19 @@ namespace Onha.Kiet
         public Webber(string hostname)
         {
             // at company
-            var handler = new HttpClientHandler
-            {
-                UseDefaultCredentials = false,
-                DefaultProxyCredentials = CredentialCache.DefaultCredentials,
-                Credentials = CredentialCache.DefaultCredentials
-            };
+            //var handler = new HttpClientHandler
+            //{
+            //    UseDefaultCredentials = false,
+            //    DefaultProxyCredentials = CredentialCache.DefaultCredentials,
+            //    Credentials = CredentialCache.DefaultCredentials
+            //};
 
-            _client = new HttpClient(handler)
-            {
-                MaxResponseContentBufferSize = 1000000
-            };
+            //_client = new HttpClient(handler)
+            //{
+            //    MaxResponseContentBufferSize = 1000000
+            //};
+
+            _client = new HttpClient();
 
             if (!string.IsNullOrEmpty(hostname))
             {

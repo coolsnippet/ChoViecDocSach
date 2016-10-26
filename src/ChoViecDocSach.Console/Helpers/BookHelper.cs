@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using HtmlAgilityPack;
 using System.Xml.Linq;
+using System.Text;
 
 namespace Onha.Kiet
 {
