@@ -25,6 +25,7 @@ namespace Onha.Kiet
         public Book GetOneWholeHtml(string firstpage)
         {
             var html = string.Empty;
+            var onlyOnePage = false;
             // 1. download
 
             // special for note
@@ -49,6 +50,7 @@ namespace Onha.Kiet
             // only 1 page!
             if (links == null)
             {
+                onlyOnePage = true;
                 links = new List<KeyValuePair<string, string>>() { new KeyValuePair<string, string>(book.Title, firstpage) };
             }
 
@@ -56,12 +58,17 @@ namespace Onha.Kiet
             book.TableOfContent = HtmlTableOfContent();
             // 7. loop and download each page per chapter
             var count = 1;
-            foreach (var link in links)
+            links.GetEnumerator().Reset();
+            do
             {
+                var link = links.GetEnumerator().Current;
                 // current chapter
                 System.Console.WriteLine(link.Key);
-                // 8. download each page/content
-                html = webber.GetStringAsync(link.Value).Result;
+                // 8. download each page/content          
+                if (!onlyOnePage)
+                {
+                    html = webber.GetStringAsync(link.Value).Result;
+                }
                 // 9. get main contain of chapter/page
                 var div = GetContentDiv(html);
                 // 10. download images
@@ -71,11 +78,11 @@ namespace Onha.Kiet
                 {
                     Title = link.Key,
                     Content = div,
-                    Number = count,
+                    Number = count++,
                     Images = images
                 });
                 count = count + 1;
-            }
+            } while (links.GetEnumerator().MoveNext());
 
 
             return book;

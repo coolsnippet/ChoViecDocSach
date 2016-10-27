@@ -19,29 +19,35 @@ namespace ChoViecDocSach.Controllers
         {
             // check domain
             var firstPageUri = new Uri(url);
-            if (firstPageUri.Host.Contains("thuvienhoasen.org"))
-            {
-                var thuvienhoasen = new ThuVienHoaSen();
-                var bookHelper = new BookHelper(thuvienhoasen);
-                //bookHelper.DownloadFolder = AppContext.BaseDirectory; // in case web app cannot access to a file outside of its folder
-                // var firstUrlPath = @"/a17221/ban-do-tu-phat";
-                // var firstUrlPath = @"/p27a10044/1/bai-van-khuyen-phat-tam-bo-de";  
 
-                // this works
-                var kindleFile = bookHelper.CreateKindleFiles(url);
-                // var fileContent = new System.IO.FileStream(kindleFile, System.IO.FileMode.Open);
-                // return File(fileContent, "application/octet-stream", System.IO.Path.GetFileName(kindleFile));    
-            }
-            else if (firstPageUri.Host.Contains("bbc.com"))
+            if (firstPageUri.Scheme == "file")
             {
-                var bbc = new BBC();
-                var bookHelper = new BookHelper(bbc);
-                var kindleFile = bookHelper.CreateKindleFiles(url);
-            } 
-            else if (firstPageUri.Scheme == "file"){
                 var note = new MyNote();
                 var bookHelper = new BookHelper(note);
                 var kindleFile = bookHelper.CreateKindleFiles(url, true);
+            }
+            else             
+            {
+                GeneralSite setting = null;
+
+                switch (firstPageUri.Host)
+                {
+                    case "thuvienhoasen.org":
+                        setting = new ThuVienHoaSen();
+                        break;
+                    case "bbc.com":
+                        setting = new BBC();
+                        break;
+                    case "suckhoe.vnexpress.net":
+                        setting = new vnexpress();
+                        break;
+                }
+
+                if (setting != null)
+                {
+                    var bookHelper = new BookHelper(setting);
+                    var kindleFile = bookHelper.CreateKindleFiles(url);
+                }        
             }
 
             return View("Index");

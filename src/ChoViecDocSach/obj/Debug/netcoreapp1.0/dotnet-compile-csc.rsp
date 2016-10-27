@@ -7,8 +7,8 @@
 -debug:portable
 -nostdlib
 -nologo
-"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\bin\Debug\netcoreapp1.0\ChoViecDocSach.dll"
+"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\bin\Debug\netcoreapp1.0\ChoViecDocSach.dll"
 -r:"C:\Users\u330652\.nuget\packages\HtmlAgilityPack.NetCore\1.5.0.1\lib\netstandard1.3\HtmlAgilityPack.NetCore.dll"
 -r:"C:\Users\u330652\.nuget\packages\Microsoft.ApplicationInsights\2.1.0\lib\dotnet5.4\Microsoft.ApplicationInsights.dll"
 -r:"C:\Users\u330652\.nuget\packages\Microsoft.ApplicationInsights.AspNetCore\1.0.0\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll"
@@ -194,8 +194,8 @@
 -r:"C:\Users\u330652\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\u330652\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
 -r:"C:\Users\u330652\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll"
--r:"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\bin\Debug\netcoreapp1.0\ChoViecDocSach.Console.dll"
--resource:"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\netcoreapp1.0\ChoViecDocSachdotnet-compile.deps.json",ChoViecDocSach.deps.json
-"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Program.cs"
-"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Startup.cs"
-"c:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Controllers\HomeController.cs"
+-r:"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\bin\Debug\netcoreapp1.0\ChoViecDocSach.Console.dll"
+-resource:"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Debug\netcoreapp1.0\ChoViecDocSachdotnet-compile.deps.json",ChoViecDocSach.deps.json
+"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Program.cs"
+"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Startup.cs"
+"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\Controllers\HomeController.cs"
