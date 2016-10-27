@@ -35,6 +35,9 @@ namespace ChoViecDocSach.Controllers
                     case "thuvienhoasen.org":
                         setting = new ThuVienHoaSen();
                         break;
+                    case "langmai.org":
+                        setting = new langmai();
+                        break;
                     case "bbc.com":
                         setting = new BBC();
                         break;

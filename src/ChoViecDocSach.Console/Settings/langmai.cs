@@ -6,10 +6,10 @@ using System.Collections.Generic;
 
 namespace Onha.Kiet
 {
-    public class BBC : GeneralSite
+    public class langmai : GeneralSite
     {
-        const string DOMAIN_HOST = @"http://www.bbc.com/";
-        public BBC() : base(DOMAIN_HOST)
+        const string DOMAIN_HOST = @"http://langmai.org/";
+        public langmai() : base(DOMAIN_HOST)
         {
         }
 
@@ -20,7 +20,7 @@ namespace Onha.Kiet
             html.LoadHtml(htmlContent);
 
             var root = html.DocumentNode;
-            var div = root.SelectSingleNode("//div[@class='story-body']"); //class="story-body" //span[@style='font-size: medium;']");
+            var div = root.SelectSingleNode("//div[@id='content']"); //class="story-body" //span[@style='font-size: medium;']");
 
             return div;
         }
@@ -35,13 +35,13 @@ namespace Onha.Kiet
             var book = new Book();
 
             var badChars = new char[] { '\r', '\n', ' '};
-            var title = contentNode.SelectSingleNode("//h1[@class='story-body__h1']");
-            var author = contentNode.SelectSingleNode("//span[@class='byline__name']");
+            var title = contentNode.SelectSingleNode("//h1[@id='parent-fieldname-title']");
+            var author = contentNode.SelectSingleNode("//div[@id='parent-fieldname-description']");
 
-            book.Title = "BBC";
-            book.Creator = "BBC";
-            book.Copyright = "BBC";
-            book.Publisher = "BBC";
+            book.Title = "langmai";
+            book.Creator = "langmai";
+            book.Copyright = "langmai";
+            book.Publisher = "langmai";
 
             if (title != null)
             {

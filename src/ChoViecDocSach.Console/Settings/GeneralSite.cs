@@ -59,9 +59,8 @@ namespace Onha.Kiet
             // 7. loop and download each page per chapter
             var count = 1;
             links.GetEnumerator().Reset();
-            do
-            {
-                var link = links.GetEnumerator().Current;
+            foreach (var link in links)
+            {              
                 // current chapter
                 System.Console.WriteLine(link.Key);
                 // 8. download each page/content          
@@ -78,11 +77,11 @@ namespace Onha.Kiet
                 {
                     Title = link.Key,
                     Content = div,
-                    Number = count++,
+                    Number = count,
                     Images = images
                 });
                 count = count + 1;
-            } while (links.GetEnumerator().MoveNext());
+            };
 
 
             return book;
