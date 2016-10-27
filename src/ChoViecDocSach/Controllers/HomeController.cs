@@ -21,7 +21,7 @@ namespace ChoViecDocSach.Controllers
             var firstPageUri = new Uri(url);
             if (firstPageUri.Host.Contains("thuvienhoasen.org"))
             {
-                var thuvienhoasen = new ThuVienHoaSen();         
+                var thuvienhoasen = new ThuVienHoaSen();
                 var bookHelper = new BookHelper(thuvienhoasen);
                 //bookHelper.DownloadFolder = AppContext.BaseDirectory; // in case web app cannot access to a file outside of its folder
                 // var firstUrlPath = @"/a17221/ban-do-tu-phat";
@@ -30,8 +30,15 @@ namespace ChoViecDocSach.Controllers
                 // this works
                 var kindleFile = bookHelper.CreateKindleFiles(url);
                 // var fileContent = new System.IO.FileStream(kindleFile, System.IO.FileMode.Open);
-                // return File(fileContent, "application/octet-stream", System.IO.Path.GetFileName(kindleFile));          
-            } else if (firstPageUri.Scheme == "file"){
+                // return File(fileContent, "application/octet-stream", System.IO.Path.GetFileName(kindleFile));    
+            }
+            else if (firstPageUri.Host.Contains("bbc.com"))
+            {
+                var bbc = new BBC();
+                var bookHelper = new BookHelper(bbc);
+                var kindleFile = bookHelper.CreateKindleFiles(url);
+            } 
+            else if (firstPageUri.Scheme == "file"){
                 var note = new MyNote();
                 var bookHelper = new BookHelper(note);
                 var kindleFile = bookHelper.CreateKindleFiles(url, true);
