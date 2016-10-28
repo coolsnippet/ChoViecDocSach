@@ -44,12 +44,12 @@
         "debugType": "portable"
       }
     }
-    // ,
-    // "net461": {
-    //     "dependencies": {            
-    //       "ChoViecDocSach.Console": "1.0.0"  
-    //     }   
-    // }
+     ,
+     "net461": {
+         "dependencies": {            
+           "ChoViecDocSach.Console": "1.0.0"  
+         }   
+     }
   },
 
   "buildOptions": {

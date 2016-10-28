@@ -16,6 +16,7 @@
         9. [9. bower (package manager for web, downloading dependencies)](#9-bower-package-manager-for-web-downloading-dependencies)
         10. [10. install typing behind corporate proxy](#10-install-typing-behind-corporate-proxy)
         11. [11. vs code setting sync behind the proxy](#11-vs-code-setting-sync-behind-the-proxy)
+        12. [12. calibre behind proxy](#12-calibre-behind-proxy)
 
 <!-- /TOC -->
 
@@ -168,5 +169,16 @@
 	
 	and it works!
 	
+<a id="markdown-12-calibre-behind-proxy" name="12-calibre-behind-proxy"></a>
+### 12. calibre behind proxy
+	Try going to Control Panel | System & Security | System or
+	Control Panel | System 
+	then Advanced System Settings | Environment variables then under the System Variables section select New and type http_proxy for variable name and the correct value in variable value.
+
+	This will set a system wide variable http_proxy.
+
+	The next time you start calibre that value will be in effect.
+
+	You could also set it as a user variable for the current user.
 
 
