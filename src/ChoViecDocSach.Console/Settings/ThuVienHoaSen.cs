@@ -97,7 +97,7 @@ namespace Onha.Kiet
             var texts = contentNode.Descendants("#text")
                                    .Where(n => n.HasChildNodes == false
 
-                                     && System.Net.WebUtility.HtmlDecode(n.InnerText).Contains((char)13) == false // <> '\r'
+                                     //&& System.Net.WebUtility.HtmlDecode(n.InnerText).Contains((char)13) == false // <> '\r'
                                      & !System.Net.WebUtility.HtmlDecode(n.InnerText).Contains("Tủ Sách Đạo Phật Ngày Nay") // ignore this title
                                      & !string.IsNullOrEmpty(System.Net.WebUtility.HtmlDecode(n.InnerText).Trim()) // no empty line
                                      & System.Net.WebUtility.HtmlDecode(n.InnerText).Trim().Length <= 50 // don't want to long length
