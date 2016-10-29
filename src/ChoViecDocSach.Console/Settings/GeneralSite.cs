@@ -58,7 +58,7 @@ namespace Onha.Kiet
             book.TableOfContent = HtmlTableOfContent();
             // 7. loop and download each page per chapter
             var count = 1;
-            links.GetEnumerator().Reset();
+            
             foreach (var link in links)
             {              
                 // current chapter

@@ -93,6 +93,23 @@ namespace Onha.Kiet
             var book = new Book();
             //style="font-size: medium;"
 
+            book.Title = "Thích ca mâu ni";
+            book.Creator = "Thích ca mâu ni";
+            book.Copyright = "Thư Viện Hoa Sen";
+            book.Publisher = "Thư Viện Hoa Sen";
+
+            var findTitle = contentNode.SelectSingleNode("//*[@class='pd_title']"); //pd_title
+            var findAuthor = contentNode.SelectSingleNode("//li[@itemprop='author']");
+
+            var badChars = new char[] { '\r', '\n', ' '};
+
+            if (findTitle !=null && findAuthor != null)
+            {
+                book.Title = System.Net.WebUtility.HtmlDecode(findTitle.InnerText).Trim(badChars);
+                book.Creator = System.Net.WebUtility.HtmlDecode(findAuthor.InnerText).Trim(badChars);
+                return book;
+            }
+
             //var span = contentNode.SelectSingleNode("//span[@style='font-size: medium;']");
             var texts = contentNode.Descendants("#text")
                                    .Where(n => n.HasChildNodes == false
@@ -126,10 +143,7 @@ namespace Onha.Kiet
                                         
                                      );
 
-            book.Title = "Thích ca mâu ni";
-            book.Creator = "Thích ca mâu ni";
-            book.Copyright = "Thư Viện Hoa Sen";
-            book.Publisher = "Thư Viện Hoa Sen";
+
 
             if (texts != null)
             {

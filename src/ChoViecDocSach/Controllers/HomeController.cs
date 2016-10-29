@@ -10,7 +10,7 @@ namespace ChoViecDocSach.Controllers
 {
     public class HomeController : Controller
     {
-    //http://stackoverflow.com/questions/5826649/returning-a-file-to-view-download-in-asp-net-mvc
+        //http://stackoverflow.com/questions/5826649/returning-a-file-to-view-download-in-asp-net-mvc
 
         // I have file not found issue
         // here is a work around
@@ -26,33 +26,49 @@ namespace ChoViecDocSach.Controllers
                 var bookHelper = new BookHelper(note);
                 var kindleFile = bookHelper.CreateKindleFiles(url, true);
             }
-            else             
+            else
             {
-                GeneralSite setting = null;
-
-                switch (firstPageUri.Host)
+                // special for thuvienhoasen 1 tac gia
+                if (firstPageUri.Host == "thuvienhoasen.org" && firstPageUri.Segments.Contains("author/"))
                 {
-                    case "thuvienhoasen.org":
-                        setting = new ThuVienHoaSen();
-                        break;
-                    case "langmai.org":
-                        setting = new langmai();
-                        break;
-                    case "bbc.com":
-                        setting = new BBC();
-                        break;
-                    case "suckhoe.vnexpress.net":
-                        setting = new vnexpress();
-                        break;
+                    var collection = new ThuVienHoaSenCollection();
+                    collection.GetWholeCollection(url);
+                }
+                else
+                {
+                    GeneralSite setting = null;
+
+                    switch (firstPageUri.Host)
+                    {
+                        case "thuvienhoasen.org":
+                            setting = new ThuVienHoaSen();
+                            break;
+                        case "langmai.org":
+                            setting = new langmai();
+                            break;
+                        case "bbc.com":
+                            setting = new BBC();
+                            break;
+                        case "suckhoe.vnexpress.net":
+                            setting = new vnexpress();
+                            break;
+                    }
+
+                    if (setting != null)
+                    {
+                        var bookHelper = new BookHelper(setting);
+                        var kindleFile = bookHelper.CreateKindleFiles(url);
+                    }
                 }
 
-                if (setting != null)
-                {
-                    var bookHelper = new BookHelper(setting);
-                    var kindleFile = bookHelper.CreateKindleFiles(url);
-                }        
+
             }
 
+            return View("Index");
+        }
+
+        public IActionResult GetKindleFileCollection(string url)
+        {
             return View("Index");
         }
 

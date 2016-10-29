@@ -3,6 +3,9 @@
 1. [Look for an element](#look-for-an-element)
     1. [1. select/find a element/node contains value](#1-selectfind-a-elementnode-contains-value)
 2. [Modify value of an element](#modify-value-of-an-element)
+3. [Get element detail](#get-element-detail)
+    2. [by Attributes index](#by-attributes-index)
+    3. [by GetAttributeValue function](#by-getattributevalue-function)
 
 <!-- /TOC -->
 
@@ -17,3 +20,16 @@ htmlDoc.DocumentNode.SelectSingleNode("//comment()[contains(., 'Buying Options')
 
 <a id="markdown-modify-value-of-an-element" name="modify-value-of-an-element"></a>
 # Modify value of an element
+
+<a id="markdown-get-element-detail" name="get-element-detail"></a>
+# Get element detail
+
+<a id="markdown-by-attributes-index" name="by-attributes-index"></a>
+## by Attributes index
+item.Attributes["href"].Value // item is the htmlnode
+
+<a id="markdown-by-getattributevalue-function" name="by-getattributevalue-function"></a>
+## by GetAttributeValue function
+n.GetAttributeValue("class", "").Equals("pd_description nw_zoomcontent normal"))
+
+
