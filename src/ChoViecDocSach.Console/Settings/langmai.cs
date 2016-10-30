@@ -14,7 +14,7 @@ namespace Onha.Kiet
         }
 
         #region Override methods
-        protected override HtmlNode GetContentDiv(string htmlContent)
+        protected override HtmlNode GetContentDiv(string htmlContent, bool cleanUp = false)
         {
             var html = new HtmlDocument();
             html.LoadHtml(htmlContent);

@@ -10,11 +10,10 @@ namespace Onha.Kiet
             var uri = new Uri(firstColectionUrl);
             var webber = new Webber(uri.Scheme + "://" + uri.Host);
             
-            var url = string.Empty;
+            var url = firstColectionUrl;
 
             do
             {   
-                url = firstColectionUrl;             
                 var html = webber.GetStringAsync(url).Result;
                 var doc = new HtmlDocument();  
                 doc.LoadHtml(html);
@@ -39,9 +38,9 @@ namespace Onha.Kiet
                     }
                 }
 
-                url = nextPage.Attributes["href"].Value;
+                url = nextPage!= null ? nextPage.Attributes["href"].Value: string.Empty;
             // fetch next load!    
-            } while (!string.IsNullOrEmpty(url));
+            } while (!string.IsNullOrEmpty(url) && !url.Contains("javascript"));
         }
        
 

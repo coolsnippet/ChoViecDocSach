@@ -18,6 +18,7 @@ namespace Onha.Kiet
         string htmlFilename;
         string ncxFilename;
         string opfBookFilename;
+        string mobiBookFilename;
         GeneralSite website;
         public string KindlegenPath { get; set; }
         public string DownloadFolder { get; set; }
@@ -31,7 +32,8 @@ namespace Onha.Kiet
         public string CreateKindleFiles(string firstpageUrl, bool forNote = false)
         {
             // 1. get the book base on website structure
-            book = website.GetOneWholeHtml(firstpageUrl);
+            book = website.CheckBookDownloaded(firstpageUrl);            
+            
             // 2. assign 3 file names
             var title = VietnameseAccentsRemover.RemoveSign4VietnameseString(book.Title);
             title = title.Replace(" ", "_");
@@ -63,10 +65,25 @@ namespace Onha.Kiet
                 downloadFolder = DownloadFolder;
             }
 
-            htmlFilename = Path.Combine(trashFolder, title) + ".html";
+            // then download a whole book
+            book = website.GetOneWholeHtml(firstpageUrl);
+
+            // clean up double quote in file name
+            title = title.Replace("\"", "_");
+            htmlFilename = Path.Combine(trashFolder, title + ".html");
 
             ncxFilename = Path.Combine(Path.GetDirectoryName(htmlFilename), Path.GetFileNameWithoutExtension(htmlFilename) + ".ncx");
             opfBookFilename = Path.Combine(Path.GetDirectoryName(htmlFilename), Path.GetFileNameWithoutExtension(htmlFilename) + ".opf");
+            mobiBookFilename = Path.Combine(Path.GetDirectoryName(htmlFilename), Path.GetFileNameWithoutExtension(htmlFilename) + ".mobi");
+
+            var downloadMobiFileName = Path.Combine(downloadFolder, title) + ".mobi";
+
+            // check if mobi file exists, then skip it
+            if (File.Exists(downloadMobiFileName))
+            {
+                return downloadMobiFileName;
+            }
+
             // 3. create 3 files
             if (!forNote)
             {
@@ -79,7 +96,7 @@ namespace Onha.Kiet
                 CreateHtmlFileFromNoteHtml();
                 CreateNCXTableOfContentForNoteHtml();
             }
-           
+
             CreateOPFBookDetail();
 
             // 4. Create mobile kindle file
@@ -101,13 +118,16 @@ namespace Onha.Kiet
                     if (File.Exists(imageFilename)) File.Delete(imageFilename);
                 }
 
-                var trashMobiFileName = Path.Combine(trashFolder, title) + ".mobi";
-                var downloadMobiFileName = Path.Combine(downloadFolder, title) + ".mobi";
+                //var trashMobiFileName = Path.Combine(trashFolder, title) + ".mobi";
 
-                if (trashMobiFileName != downloadMobiFileName) // on Windows, we don't need to copy because I didn't check for trash folder
+
+                if (mobiBookFilename != downloadMobiFileName) // on Windows, we don't need to copy because I didn't check for trash folder
                 {
                     if (File.Exists(downloadMobiFileName)) File.Delete(downloadMobiFileName);
-                    File.Move(trashMobiFileName, downloadMobiFileName);
+                    if (File.Exists(mobiBookFilename))
+                    {
+                        File.Move(mobiBookFilename, downloadMobiFileName);
+                    }
                 }
 
             }
@@ -171,7 +191,7 @@ namespace Onha.Kiet
 					 {1}
 					 </ncx>"
                              ;
-            var toc = book.TableOfContent.Descendants("a").Select(n => new KeyValuePair<string, string> 
+            var toc = book.TableOfContent.Descendants("a").Select(n => new KeyValuePair<string, string>
                                                                 (n.InnerText, n.Attributes["href"].Value)
                                                             );
 
@@ -352,7 +372,7 @@ namespace Onha.Kiet
         {
             Process process = new Process();
             process.StartInfo.FileName = KindlegenPath; //@"/Users/kiettran/Downloads/kindlegen";
-            process.StartInfo.Arguments = opfBookFilename;
+            process.StartInfo.Arguments = opfBookFilename; // double quote in the argument
             process.StartInfo.CreateNoWindow = false;
             process.Start();
             process.WaitForExit();

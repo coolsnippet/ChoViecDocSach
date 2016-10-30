@@ -14,7 +14,7 @@ namespace Onha.Kiet
         }
 
         #region Override methods
-        protected override HtmlNode GetContentDiv(string htmlContent)
+        protected override HtmlNode GetContentDiv(string htmlContent, bool cleanUp = false)
         {
             var html = new HtmlDocument();
             html.LoadHtml(htmlContent);
@@ -23,6 +23,10 @@ namespace Onha.Kiet
             var div = root.Descendants()
                               .Where(n => n.GetAttributeValue("class", "").Equals("pd_description nw_zoomcontent normal"))
                               .FirstOrDefault();
+
+            if (!cleanUp)
+                return div;
+
             var nodeToRemove = div.Descendants()
                               .Where(n => n.GetAttributeValue("class", "").Equals("nw_book_tree"))
                               .FirstOrDefault();
@@ -35,6 +39,7 @@ namespace Onha.Kiet
                               .Where(n => n.GetAttributeValue("class", "").Equals("clear"))
                               .FirstOrDefault();
 
+            
             // this perfect to remove a node	
             // http://stackoverflow.com/questions/12092575/html-agility-pack-remove-element-but-not-innerhtml
             if (nodeToRemove != null)
@@ -98,8 +103,16 @@ namespace Onha.Kiet
             book.Copyright = "Thư Viện Hoa Sen";
             book.Publisher = "Thư Viện Hoa Sen";
 
+            HtmlNode multipleLinkTitle = contentNode.SelectSingleNode("//*[@class='nw_boxing_title' and ancestor::*[@class='nw_book_tree']]"); // above the content of the link      
+     
+
             var findTitle = contentNode.SelectSingleNode("//*[@class='pd_title']"); //pd_title
             var findAuthor = contentNode.SelectSingleNode("//li[@itemprop='author']");
+
+            if (multipleLinkTitle!=null)
+            {
+                findTitle = multipleLinkTitle; // overwrite this, because findTitle just a chapter name if multiple page is there!
+            }
 
             var badChars = new char[] { '\r', '\n', ' '};
 

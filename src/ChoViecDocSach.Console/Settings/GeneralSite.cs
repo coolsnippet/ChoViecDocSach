@@ -21,6 +21,34 @@ namespace Onha.Kiet
             this.domainHost = domainHost;
         }
 
+        public Book CheckBookDownloaded(string firstpage)
+        {
+            var html = string.Empty;
+            var onlyOnePage = false;
+            // 1. download
+
+            // special for note
+            if (string.IsNullOrEmpty(domainHost))
+            {
+                var uri = new Uri(firstpage);
+                html = File.ReadAllText(uri.AbsolutePath);
+                return GetBookInformation(GetContentDiv(html));
+            }
+
+            // continue as normal
+            webber = new Webber(domainHost);
+            html = webber.GetStringAsync(firstpage).Result;
+
+            // 2. parse to get links of chapters
+            links = GetLinks(html);
+            // 3. get content div
+            var contentDiv = GetContentDiv(html);
+            // 4. get book information: title, publisher, author
+            var book = GetBookInformation(contentDiv);
+
+            return book;
+        }
+
         // get the all content of a book and return a book data
         public Book GetOneWholeHtml(string firstpage)
         {
@@ -69,7 +97,7 @@ namespace Onha.Kiet
                     html = webber.GetStringAsync(link.Value).Result;
                 }
                 // 9. get main contain of chapter/page
-                var div = GetContentDiv(html);
+                var div = GetContentDiv(html, cleanUp: true);
                 // 10. download images
                 var images = FixImages(div);
                 // 11. add to book chapter
@@ -88,7 +116,7 @@ namespace Onha.Kiet
         }
 
         // every site has different structure for content
-        abstract protected HtmlNode GetContentDiv(string htmlContent);
+        abstract protected HtmlNode GetContentDiv(string htmlContent, bool cleanUp = false);
 
         // and different structure to get links of table of content
         abstract protected IEnumerable<KeyValuePair<string, string>> GetLinks(string htmlContent);
