@@ -45,9 +45,15 @@ Here is the example:
 <a id="markdown-5-template" name="5-template"></a>
 ## 5. Template
 
+define a template
 ![Define a template](Define_a_template.png)
 
+filter
 ![filter 1](Template_filter_list.png)
 
-        
+product page
+![Product page](Product.png)
+
+a component with directive
+![awholecomponent](awholecomponent.png)
         
