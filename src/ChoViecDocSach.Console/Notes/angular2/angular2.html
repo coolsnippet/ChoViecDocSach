@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- TOC insertAnchor:true orderedList:true -->
+
+
+<ol>
+<li><p><a href="#angular-2">Angular 2</a></p>
+<ol>
+<li><a href="#1-use-typescript-strongly-typed">1. use Typescript: strongly typed</a><br /></li>
+<li><p><a href="#2-npm-node-package-manager">2. npm (Node package manager)</a></p>
+<ol>
+<li><a href="#angularcli-is-a-boilerplate-for-angular">AngularCli is a boilerplate for angular</a><br /></li>
+</ol></li>
+<li><a href="#3-module-is-namespace-to-organize-code">3. module is namespace, to organize code</a><br /></li>
+<li><a href="#4-component-is-a-template-for-view-metadata-using-decorator">4. component is a template (for view) + metadata using Decorator</a><br /></li>
+<li><p><a href="#5-template">5. Template</a></p></li>
+</ol></li>
+</ol>
+<!-- /TOC -->
+
+
+<p><a id="markdown-angular-2" name="angular-2"></a></p>
+<h1 id="angular-2">Angular 2</h1>
+<p><a id="markdown-1-use-typescript-strongly-typed" name="1-use-typescript-strongly-typed"></a></p>
+<h2 id="use-typescript-strongly-typed">1. use Typescript: strongly typed</h2>
+<pre><code>    Typescript type definition files (*.d.ts)
+    And using object !</code></pre>
+<p><a id="markdown-2-npm-node-package-manager" name="2-npm-node-package-manager"></a></p>
+<h2 id="npm-node-package-manager">2. npm (Node package manager)</h2>
+<p><a id="markdown-angularcli-is-a-boilerplate-for-angular" name="angularcli-is-a-boilerplate-for-angular"></a></p>
+<h3 id="angularcli-is-a-boilerplate-for-angular">AngularCli is a boilerplate for angular</h3>
+<p><a id="markdown-" name=""></a><br /><a id="markdown-3-module-is-namespace-to-organize-code" name="3-module-is-namespace-to-organize-code"></a></p>
+<h2 id="module-is-namespace-to-organize-code">3. module is namespace, to organize code</h2>
+<p>how to use? ES 2015<br /> 1. create code file: product.ts<br /> export class Product { //</p>
+<pre><code>        }
+2. and another file: product-list.ts
+        import { Product } from
+        &#39;.product&#39;</code></pre>
+<p><a id="markdown-4-component-is-a-template-for-view-metadata-using-decorator" name="4-component-is-a-template-for-view-metadata-using-decorator"></a></p>
+<h2 id="component-is-a-template-for-view-metadata-using-decorator">4. component is a template (for view) + metadata using Decorator</h2>
+<pre><code>Decorator is a function that adds metadata to a class, its members, or its method arguments
+prefixed with an @
+Comment: this decorator @Component is right above the export class like attribute in c#
+we have view layout, binding and directive name used in html
+Component = Template + Class + Metadaa</code></pre>
+<p>Here is the example:<br /><img src="Component.png" alt="component example" /></p>
+<p><a id="markdown-5-template" name="5-template"></a></p>
+<h2 id="template">5. Template</h2>
+<p><img src="Define_a_template.png" alt="Define a template" /></p>
+<p><img src="Template_filter_list.png" alt="filter 1" /></p>
+</body>
+</html>

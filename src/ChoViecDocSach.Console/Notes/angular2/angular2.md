@@ -6,6 +6,7 @@
         1. [AngularCli is a boilerplate for angular](#angularcli-is-a-boilerplate-for-angular)
     3. [3. module is namespace, to organize code](#3-module-is-namespace-to-organize-code)
     4. [4. component is a template (for view) + metadata using Decorator](#4-component-is-a-template-for-view-metadata-using-decorator)
+    5. [5. Template](#5-template)
 
 <!-- /TOC -->
 
@@ -36,6 +37,17 @@
     prefixed with an @
     Comment: this decorator @Component is right above the export class like attribute in c#
     we have view layout, binding and directive name used in html
+    Component = Template + Class + Metadaa
+
+Here is the example:
+![component example](Component.png)
+    
+<a id="markdown-5-template" name="5-template"></a>
+## 5. Template
+
+![Define a template](Define_a_template.png)
+
+![filter 1](Template_filter_list.png)
 
         
         
