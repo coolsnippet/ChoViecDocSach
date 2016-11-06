@@ -52,6 +52,9 @@ namespace ChoViecDocSach.Controllers
                         case "suckhoe.vnexpress.net":
                             setting = new vnexpress();
                             break;
+                        case "msdn.microsoft.com":
+                            setting = new msdn();
+                            break;                            
                     }
 
                     if (setting != null)
