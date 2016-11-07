@@ -37,7 +37,17 @@ namespace Onha.Kiet
 
             // continue as normal
             webber = new Webber(domainHost);
-            html = webber.GetStringAsync(firstpage).Result;
+
+            try
+            {
+                 html = webber.GetStringAsync(firstpage).Result;
+            }
+            catch (System.Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                throw;
+            }
+           
 
             // 2. parse to get links of chapters
             links = GetLinks(html);

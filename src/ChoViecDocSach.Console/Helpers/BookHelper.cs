@@ -359,6 +359,10 @@ namespace Onha.Kiet
 
             foreach (var item in images)
             {
+                // if no image then skip it
+                if (string.IsNullOrEmpty(item.Key))
+                    continue;
+
                 var filename = Path.Combine(path, item.Key);
                 using (var fileStream = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None))
                 {

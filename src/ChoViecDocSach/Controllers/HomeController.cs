@@ -54,7 +54,13 @@ namespace ChoViecDocSach.Controllers
                             break;
                         case "msdn.microsoft.com":
                             setting = new msdn();
-                            break;                            
+                            break;     
+                        case "rapidfireart.com":    
+                            setting = new rapidfireart();    
+                            break;            
+                        case "design.tutsplus.com":    
+                            setting = new designtutsplus();    
+                            break;                                 
                     }
 
                     if (setting != null)
