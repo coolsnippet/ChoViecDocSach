@@ -5,11 +5,14 @@
     "command": "dotnet",
     "isShellCommand": true,
     "args": [],
+    "options": {
+        "cwd": "${workspaceRoot}/src/ChoViecDocSach/"
+    },
     "tasks": [
         {
             "taskName": "build",
             "args": [ 
-                "${workspaceRoot}/src/ChoViecDocSach/project.json"
+                "project.json"
             ],
             "isBuildCommand": true,
             // "showOutput": "silent",

@@ -59,17 +59,27 @@ namespace Onha.Kiet
             else // windows
             {
                 CalibrePath = @"C:\Program Files (x86)\Calibre2\calibredb.exe";
+
+
+                
 #if DEBUG
                 trashFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
                 downloadFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
-                Logger logger = NLog.LogManager.GetCurrentClassLogger();
-                logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
+                // Logger logger = NLog.LogManager.GetCurrentClassLogger();
+                // logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
                 KindlegenPath = @"C:\Kiet\Kinh\kindlegen.exe";
 #else
-                trashFolder = @"C:\Kiet\Kinh\";
-                downloadFolder = @"C:\Kiet\Kinh\";
-                Logger logger = NLog.LogManager.GetCurrentClassLogger();
-                logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
+                var today = System.DateTime.Today.ToString("yyyy-MM-dd-ddd");
+                trashFolder = Path.Combine(@"C:\Kiet\Kinh\", today);
+                downloadFolder = trashFolder;     
+
+                if (!Directory.Exists(downloadFolder))
+                {
+                    Directory.CreateDirectory(downloadFolder);
+                }           
+
+                // Logger logger = NLog.LogManager.GetCurrentClassLogger();
+                // logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
                 KindlegenPath = @"C:\Kiet\Kinh\kindlegen.exe";
                 // if release
 #endif
@@ -405,9 +415,13 @@ namespace Onha.Kiet
             process.StartInfo.FileName = CalibrePath; ///Applications/calibre.app/Contents/MacOS/calibredb add --with-library "/Volumes/Ministack/Calibre Library" --recurse "/Users/Dropbox/Books/"
             process.StartInfo.Arguments = "add " + mobiBookFilename; // double quote in the argument
             process.StartInfo.CreateNoWindow = false;
-            process.Start();
+            process.StartInfo.UseShellExecute = false;
+            // process.StartInfo.RedirectStandardOutput = true;
+            process.Start();            
+            // string output = process.StandardOutput.ReadToEnd(); // output to somewhere https://msdn.microsoft.com/en-us/library/system.diagnostics.processstartinfo.redirectstandardoutput(v=vs.110).aspx
             process.WaitForExit();
             
+     
         }
     }
 }
