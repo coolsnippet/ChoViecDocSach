@@ -1,6 +1,5 @@
 ﻿-d:RELEASE
 -d:TRACE
--d:DEBUG
 -d:NETCOREAPP1_0
 -nowarn:CS1701
 -nowarn:CS1702

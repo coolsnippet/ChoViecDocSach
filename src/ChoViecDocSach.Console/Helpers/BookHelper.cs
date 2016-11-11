@@ -58,7 +58,7 @@ namespace Onha.Kiet
             }
             else // windows
             {
-                CalibrePath = @"";
+                CalibrePath = @"C:\Program Files (x86)\Calibre2\calibredb.exe";
 #if DEBUG
                 trashFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
                 downloadFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
@@ -407,6 +407,7 @@ namespace Onha.Kiet
             process.StartInfo.CreateNoWindow = false;
             process.Start();
             process.WaitForExit();
+            
         }
     }
 }

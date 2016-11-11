@@ -20,7 +20,7 @@
       },
       "imports": "dnxcore50",
       "buildOptions": {
-        "define": ["DEBUG"]
+        "define": ["RELEASE"]
       }
     }
     //  ,

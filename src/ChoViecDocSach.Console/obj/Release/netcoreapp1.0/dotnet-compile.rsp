@@ -2,7 +2,6 @@
 --out:C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\bin\Release\netcoreapp1.0\ChoViecDocSach.Console.dll
 --define:RELEASE
 --define:TRACE
---define:DEBUG
 --define:NETCOREAPP1_0
 --suppress-warning:CS1701
 --suppress-warning:CS1702
