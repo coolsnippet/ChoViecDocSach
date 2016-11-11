@@ -45,7 +45,12 @@ namespace ChoViecDocSach
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            loggerFactory.AddNLog();            
+
+            if (Environment.GetEnvironmentVariable("_system_name") != "OSX")
+            {
+                // log only in windows
+                loggerFactory.AddNLog();          
+            }  
 
             app.UseApplicationInsightsRequestTelemetry();
 
