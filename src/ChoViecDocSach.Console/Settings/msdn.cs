@@ -56,7 +56,7 @@ namespace Onha.Kiet
                 if (rawAuthorSegs.Count() >=2)
                 {
                     book.Title = rawAuthorSegs[1] + "-" + book.Title;
-                    book.Creator = rawAuthorSegs[0] + "(" + rawAuthorSegs[1]+ ")";
+                    book.Creator = rawAuthorSegs[0];//+ "(" + rawAuthorSegs[1]+ ")";
                 }
                 else
                 {
