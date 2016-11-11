@@ -100,6 +100,8 @@
 --reference:C:\Users\u330652\.nuget\packages\Microsoft.Win32.Primitives\4.0.1\ref\netstandard1.3\Microsoft.Win32.Primitives.dll
 --reference:C:\Users\u330652\.nuget\packages\Microsoft.Win32.Registry\4.0.0\ref\netstandard1.3\Microsoft.Win32.Registry.dll
 --reference:C:\Users\u330652\.nuget\packages\Newtonsoft.Json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll
+--reference:C:\Users\u330652\.nuget\packages\NLog\4.4.0-beta12\lib\netstandard1.3\NLog.dll
+--reference:C:\Users\u330652\.nuget\packages\NLog.Extensions.Logging\1.0.0-rtm-alpha4\lib\netstandard1.3\NLog.Extensions.Logging.dll
 --reference:C:\Users\u330652\.nuget\packages\NuGet.Common\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Common.dll
 --reference:C:\Users\u330652\.nuget\packages\NuGet.Configuration\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.Configuration.dll
 --reference:C:\Users\u330652\.nuget\packages\NuGet.DependencyResolver.Core\3.5.0-beta2-1484\lib\netstandard1.3\NuGet.DependencyResolver.Core.dll
@@ -125,12 +127,14 @@
 --reference:C:\Users\u330652\.nuget\packages\System.ComponentModel.Primitives\4.1.0\ref\netstandard1.0\System.ComponentModel.Primitives.dll
 --reference:C:\Users\u330652\.nuget\packages\System.ComponentModel.TypeConverter\4.1.0\ref\netstandard1.5\System.ComponentModel.TypeConverter.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Console\4.0.0\ref\netstandard1.3\System.Console.dll
+--reference:C:\Users\u330652\.nuget\packages\System.Data.Common\4.1.0\ref\netstandard1.2\System.Data.Common.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.Contracts\4.0.1\ref\netstandard1.0\System.Diagnostics.Contracts.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.Debug\4.0.11\ref\netstandard1.3\System.Diagnostics.Debug.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.DiagnosticSource\4.0.0\lib\netstandard1.3\System.Diagnostics.DiagnosticSource.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.Process\4.1.0\ref\netstandard1.4\System.Diagnostics.Process.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.StackTrace\4.0.1\ref\netstandard1.3\System.Diagnostics.StackTrace.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.Tools\4.0.1\ref\netstandard1.0\System.Diagnostics.Tools.dll
+--reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.TraceSource\4.0.0\ref\netstandard1.3\System.Diagnostics.TraceSource.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Diagnostics.Tracing\4.1.0\ref\netstandard1.5\System.Diagnostics.Tracing.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Dynamic.Runtime\4.0.11\ref\netstandard1.3\System.Dynamic.Runtime.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Globalization\4.0.11\ref\netstandard1.3\System.Globalization.dll
@@ -198,6 +202,7 @@
 --reference:C:\Users\u330652\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
+--reference:C:\Users\u330652\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll
 --reference:C:\Users\u330652\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll
 --reference:C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\bin\Release\netcoreapp1.0\ChoViecDocSach.Console.dll
 --resource:"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach\obj\Release\netcoreapp1.0\ChoViecDocSachdotnet-compile.deps.json",ChoViecDocSach.deps.json

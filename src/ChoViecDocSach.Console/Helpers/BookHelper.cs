@@ -6,6 +6,8 @@ using System.Linq;
 using HtmlAgilityPack;
 using System.Xml.Linq;
 using System.Text;
+using Microsoft.Extensions.Logging;
+using NLog;
 
 namespace Onha.Kiet
 {
@@ -54,9 +56,20 @@ namespace Onha.Kiet
             }
             else // windows
             {
+#if DEBUG
                 trashFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
                 downloadFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
+                Logger logger = NLog.LogManager.GetCurrentClassLogger();
+                logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
                 KindlegenPath = @"C:\Kiet\Kinh\kindlegen.exe";
+#else
+                trashFolder = "C:\Kiet\Kinh\";
+                downloadFolder = "C:\Kiet\Kinh\\";
+                Logger logger = NLog.LogManager.GetCurrentClassLogger();
+                logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
+                KindlegenPath = @"C:\Kiet\Kinh\kindlegen.exe";
+                // if release
+#endif
             }
 
             // in case we use Website project to reference to it

@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Onha.Kiet;
-
+using Microsoft.Extensions.Logging;
 
 namespace ChoViecDocSach.Controllers
 {
     public class HomeController : Controller
     {
+
         //http://stackoverflow.com/questions/5826649/returning-a-file-to-view-download-in-asp-net-mvc
+
 
         // I have file not found issue
         // here is a work around
