@@ -38,32 +38,7 @@ namespace ChoViecDocSach.Controllers
                 }
                 else
                 {
-                    GeneralSite setting = null;
-
-                    switch (firstPageUri.Host)
-                    {
-                        case "thuvienhoasen.org":
-                            setting = new ThuVienHoaSen();
-                            break;
-                        case "langmai.org":
-                            setting = new langmai();
-                            break;
-                        case "bbc.com":
-                            setting = new BBC();
-                            break;
-                        case "suckhoe.vnexpress.net":
-                            setting = new vnexpress();
-                            break;
-                        case "msdn.microsoft.com":
-                            setting = new msdn();
-                            break;     
-                        case "rapidfireart.com":    
-                            setting = new rapidfireart();    
-                            break;            
-                        case "design.tutsplus.com":    
-                            setting = new designtutsplus();    
-                            break;                                 
-                    }
+                    GeneralSite setting = SettingFactory.Get(firstPageUri.Host);                   
                     
                     if (setting != null)
                     {
