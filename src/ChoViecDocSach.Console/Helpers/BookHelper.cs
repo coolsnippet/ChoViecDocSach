@@ -23,6 +23,7 @@ namespace Onha.Kiet
         string mobiBookFilename;
         GeneralSite website;
         public string KindlegenPath { get; set; }
+        public string CalibrePath { get; set;}
         public string DownloadFolder { get; set; }
         public BookHelper(GeneralSite website)
         {
@@ -53,9 +54,11 @@ namespace Onha.Kiet
                 trashFolder = Path.Combine(Environment.GetEnvironmentVariable("HOME"), ".Trash");
                 downloadFolder = Path.Combine(Environment.GetEnvironmentVariable("HOME"), "Downloads");
                 KindlegenPath = "/Users/kiettran/Downloads/kindlegen";
+                CalibrePath = "/Applications/calibre.app/Contents/MacOS/calibredb";
             }
             else // windows
             {
+                CalibrePath = @"";
 #if DEBUG
                 trashFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
                 downloadFolder = Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE"), "Downloads");
@@ -63,8 +66,8 @@ namespace Onha.Kiet
                 logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
                 KindlegenPath = @"C:\Kiet\Kinh\kindlegen.exe";
 #else
-                trashFolder = "C:\Kiet\Kinh\";
-                downloadFolder = "C:\Kiet\Kinh\\";
+                trashFolder = @"C:\Kiet\Kinh\";
+                downloadFolder = @"C:\Kiet\Kinh\";
                 Logger logger = NLog.LogManager.GetCurrentClassLogger();
                 logger.Info($"-------------DOWNLOAD FOLDER IS: {downloadFolder} --------------");
                 KindlegenPath = @"C:\Kiet\Kinh\kindlegen.exe";
@@ -116,6 +119,7 @@ namespace Onha.Kiet
             if (!string.IsNullOrWhiteSpace(KindlegenPath))
             {
                 CreateKindleFile();
+                AddFileToCalibre();
                 // we don't use these files, delete it for now
                 htmlFilename = Path.Combine(trashFolder, htmlFilename);
                 ncxFilename = Path.Combine(trashFolder, ncxFilename);
@@ -390,6 +394,16 @@ namespace Onha.Kiet
             Process process = new Process();
             process.StartInfo.FileName = KindlegenPath; //@"/Users/kiettran/Downloads/kindlegen";
             process.StartInfo.Arguments = opfBookFilename; // double quote in the argument
+            process.StartInfo.CreateNoWindow = false;
+            process.Start();
+            process.WaitForExit();
+        }
+
+        private void AddFileToCalibre()
+        {
+            Process process = new Process(); //http://www.mobileread.mobi/forums/showthread.php?t=252226
+            process.StartInfo.FileName = CalibrePath; ///Applications/calibre.app/Contents/MacOS/calibredb add --with-library "/Volumes/Ministack/Calibre Library" --recurse "/Users/Dropbox/Books/"
+            process.StartInfo.Arguments = "add " + mobiBookFilename; // double quote in the argument
             process.StartInfo.CreateNoWindow = false;
             process.Start();
             process.WaitForExit();

@@ -1,0 +1,111 @@
+2016-11-10 20:18:39.3099|3|Microsoft.AspNetCore.Hosting.Internal.WebHost|DEBUG|Hosting starting 
+2016-11-10 20:18:39.5638|4|Microsoft.AspNetCore.Hosting.Internal.WebHost|DEBUG|Hosting started 
+2016-11-10 20:18:39.6864|1|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JP" started. 
+2016-11-10 20:18:39.6864|1|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JQ" started. 
+2016-11-10 20:18:40.0222|1|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:5000/   
+2016-11-10 20:18:40.0846|4|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|DEBUG|The request path / does not match a supported file type 
+2016-11-10 20:18:40.2835|1|Microsoft.AspNetCore.Routing.RouteBase|DEBUG|Request successfully matched the route with name 'default' and template '{controller=Home}/{action=Index}/{id?}'. 
+2016-11-10 20:18:40.3906|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executing action ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach) 
+2016-11-10 20:18:40.4698|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach) with arguments () - ModelState is Valid 
+2016-11-10 20:18:40.4751|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executed action method ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach), returned result Microsoft.AspNetCore.Mvc.ViewResult. 
+2016-11-10 20:18:40.6175|1|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache miss for view 'Index' in controller 'Home'. 
+2016-11-10 20:18:40.7245|1|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Home/Index.cshtml' started. 
+2016-11-10 20:18:41.3808|2|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Home/Index.cshtml' completed in 649.6895ms. 
+2016-11-10 20:18:41.4265|1|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Home/Index.cshtml' started. 
+2016-11-10 20:18:42.3683|6|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JQ" received FIN. 
+2016-11-10 20:18:43.0678|2|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Home/Index.cshtml' completed in 1640.347ms. 
+2016-11-10 20:18:43.0746|1|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/_ViewStart.cshtml' started. 
+2016-11-10 20:18:43.0811|2|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/_ViewStart.cshtml' completed in 6.1896ms. 
+2016-11-10 20:18:43.0814|1|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/_ViewStart.cshtml' started. 
+2016-11-10 20:18:43.1669|2|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/_ViewStart.cshtml' completed in 85.2437ms. 
+2016-11-10 20:18:43.1757|2|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|DEBUG|The view 'Index' was found. 
+2016-11-10 20:18:43.1825|1|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2016-11-10 20:18:43.2942|0|Microsoft.Extensions.DependencyInjection.DataProtectionServices|INFO|User profile is available. Using '/Users/kiettran/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest. 
+2016-11-10 20:18:43.4528|1|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache miss for view '_Layout' in controller 'Home'. 
+2016-11-10 20:18:43.4528|1|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Shared/_Layout.cshtml' started. 
+2016-11-10 20:18:43.5376|2|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Shared/_Layout.cshtml' completed in 83.6782ms. 
+2016-11-10 20:18:43.5381|1|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Shared/_Layout.cshtml' started. 
+2016-11-10 20:18:43.7988|2|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Shared/_Layout.cshtml' completed in 260.3831ms. 
+2016-11-10 20:18:44.0991|14|Microsoft.AspNetCore.Server.Kestrel|INFO|Connection id "0HL09R46G06JQ" communication error Error -32 EPIPE broken pipe
+2016-11-10 20:18:44.1024|10|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JQ" disconnecting. 
+2016-11-10 20:18:44.1110|2|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JQ" stopped. 
+2016-11-10 20:18:44.1217|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach) in 3718.9493ms 
+2016-11-10 20:18:44.2667|2|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4303.0841ms 200 text/html; charset=utf-8 
+2016-11-10 20:18:51.8218|6|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JP" received FIN. 
+2016-11-10 20:18:51.8226|10|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JP" disconnecting. 
+2016-11-10 20:18:51.8226|7|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JP" sending FIN. 
+2016-11-10 20:18:51.8279|8|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JP" sent FIN with status "0". 
+2016-11-10 20:18:51.8279|2|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JP" stopped. 
+2016-11-10 20:18:55.1460|1|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JR" started. 
+2016-11-10 20:18:55.1552|1|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:5000/Home/GetKindleFile?url=https://msdn.microsoft.com/en-us/magazine/dn818501.aspx   
+2016-11-10 20:18:55.1552|4|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|DEBUG|The request path /Home/GetKindleFile does not match a supported file type 
+2016-11-10 20:18:55.1563|1|Microsoft.AspNetCore.Routing.RouteBase|DEBUG|Request successfully matched the route with name 'default' and template '{controller=Home}/{action=Index}/{id?}'. 
+2016-11-10 20:18:55.1593|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executing action ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach) 
+2016-11-10 20:18:55.2910|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach) with arguments (https://msdn.microsoft.com/en-us/magazine/dn818501.aspx) - ModelState is Valid 
+2016-11-10 20:18:55.9559|6|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JR" received FIN. 
+2016-11-10 20:18:59.3326|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executed action method ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach), returned result Microsoft.AspNetCore.Mvc.ViewResult. 
+2016-11-10 20:18:59.3371|2|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache hit for view 'Index' in controller 'Home'. 
+2016-11-10 20:18:59.3376|2|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|DEBUG|The view 'Index' was found. 
+2016-11-10 20:18:59.3429|1|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2016-11-10 20:18:59.3439|2|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache hit for view '_Layout' in controller 'Home'. 
+2016-11-10 20:18:59.3506|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach) in 4184.2841ms 
+2016-11-10 20:18:59.3624|2|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 4206.8665ms 200 text/html; charset=utf-8 
+2016-11-10 20:18:59.3706|9|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JR" completed keep alive response. 
+2016-11-10 20:18:59.3716|10|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JR" disconnecting. 
+2016-11-10 20:18:59.3769|14|Microsoft.AspNetCore.Server.Kestrel|INFO|Connection id "0HL09R46G06JR" communication error Error -32 EPIPE broken pipe
+2016-11-10 20:18:59.3774|7|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JR" sending FIN. 
+2016-11-10 20:18:59.3829|8|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JR" sent FIN with status "-57". 
+2016-11-10 20:18:59.3833|2|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09R46G06JR" stopped. 
+2016-11-10 20:44:02.6988|3|Microsoft.AspNetCore.Hosting.Internal.WebHost|DEBUG|Hosting starting 
+2016-11-10 20:44:02.9569|4|Microsoft.AspNetCore.Hosting.Internal.WebHost|DEBUG|Hosting started 
+2016-11-10 20:44:03.0807|1|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDU" started. 
+2016-11-10 20:44:03.0807|1|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDT" started. 
+2016-11-10 20:44:03.4240|1|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:5000/   
+2016-11-10 20:44:03.4820|4|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|DEBUG|The request path / does not match a supported file type 
+2016-11-10 20:44:03.6735|1|Microsoft.AspNetCore.Routing.RouteBase|DEBUG|Request successfully matched the route with name 'default' and template '{controller=Home}/{action=Index}/{id?}'. 
+2016-11-10 20:44:03.7873|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executing action ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach) 
+2016-11-10 20:44:03.8762|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach) with arguments () - ModelState is Valid 
+2016-11-10 20:44:03.8822|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executed action method ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach), returned result Microsoft.AspNetCore.Mvc.ViewResult. 
+2016-11-10 20:44:04.0213|1|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache miss for view 'Index' in controller 'Home'. 
+2016-11-10 20:44:04.1049|1|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Home/Index.cshtml' started. 
+2016-11-10 20:44:04.6744|2|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Home/Index.cshtml' completed in 564.4961ms. 
+2016-11-10 20:44:04.7166|1|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Home/Index.cshtml' started. 
+2016-11-10 20:44:05.4071|6|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDU" received FIN. 
+2016-11-10 20:44:06.1312|2|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Home/Index.cshtml' completed in 1413.9983ms. 
+2016-11-10 20:44:06.1372|1|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/_ViewStart.cshtml' started. 
+2016-11-10 20:44:06.1428|2|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/_ViewStart.cshtml' completed in 5.3196ms. 
+2016-11-10 20:44:06.1433|1|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/_ViewStart.cshtml' started. 
+2016-11-10 20:44:06.2120|2|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/_ViewStart.cshtml' completed in 68.3219ms. 
+2016-11-10 20:44:06.2219|2|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|DEBUG|The view 'Index' was found. 
+2016-11-10 20:44:06.2285|1|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2016-11-10 20:44:06.3276|0|Microsoft.Extensions.DependencyInjection.DataProtectionServices|INFO|User profile is available. Using '/Users/kiettran/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest. 
+2016-11-10 20:44:06.4310|1|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache miss for view '_Layout' in controller 'Home'. 
+2016-11-10 20:44:06.4318|1|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Shared/_Layout.cshtml' started. 
+2016-11-10 20:44:06.4897|2|Microsoft.AspNetCore.Mvc.Razor.Internal.RazorCompilationService|DEBUG|Code generation for the Razor file at '/Views/Shared/_Layout.cshtml' completed in 57.543ms. 
+2016-11-10 20:44:06.4897|1|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Shared/_Layout.cshtml' started. 
+2016-11-10 20:44:06.6552|2|Microsoft.AspNetCore.Mvc.Razor.Internal.DefaultRoslynCompilationService|DEBUG|Compilation of the generated code for the Razor file at '/Views/Shared/_Layout.cshtml' completed in 164.9321ms. 
+2016-11-10 20:44:06.9537|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action ChoViecDocSach.Controllers.HomeController.Index (ChoViecDocSach) in 3158.1735ms 
+2016-11-10 20:44:07.0514|2|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 3666.3763ms 200 text/html; charset=utf-8 
+2016-11-10 20:44:07.0598|9|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDU" completed keep alive response. 
+2016-11-10 20:44:07.0663|14|Microsoft.AspNetCore.Server.Kestrel|INFO|Connection id "0HL09RICG7HDU" communication error Error -32 EPIPE broken pipe
+2016-11-10 20:44:07.0677|10|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDU" disconnecting. 
+2016-11-10 20:44:07.0734|2|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDU" stopped. 
+2016-11-10 20:44:19.7263|6|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDT" received FIN. 
+2016-11-10 20:44:19.7272|10|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDT" disconnecting. 
+2016-11-10 20:44:19.7272|7|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDT" sending FIN. 
+2016-11-10 20:44:19.7319|8|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDT" sent FIN with status "0". 
+2016-11-10 20:44:19.7323|2|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDT" stopped. 
+2016-11-10 20:44:35.5251|1|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDV" started. 
+2016-11-10 20:44:35.5366|1|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET http://localhost:5000/Home/GetKindleFile?url=https://msdn.microsoft.com/en-us/magazine/dn201754.aspx   
+2016-11-10 20:44:35.5373|4|Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware|DEBUG|The request path /Home/GetKindleFile does not match a supported file type 
+2016-11-10 20:44:35.5373|1|Microsoft.AspNetCore.Routing.RouteBase|DEBUG|Request successfully matched the route with name 'default' and template '{controller=Home}/{action=Index}/{id?}'. 
+2016-11-10 20:44:35.5393|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executing action ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach) 
+2016-11-10 20:44:35.6630|1|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach) with arguments (https://msdn.microsoft.com/en-us/magazine/dn201754.aspx) - ModelState is Valid 
+2016-11-10 20:44:40.6331|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|DEBUG|Executed action method ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach), returned result Microsoft.AspNetCore.Mvc.ViewResult. 
+2016-11-10 20:44:40.6369|2|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache hit for view 'Index' in controller 'Home'. 
+2016-11-10 20:44:40.6375|2|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|DEBUG|The view 'Index' was found. 
+2016-11-10 20:44:40.6460|1|Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ViewResultExecutor|INFO|Executing ViewResult, running view at path /Views/Home/Index.cshtml. 
+2016-11-10 20:44:40.6492|2|Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine|DEBUG|View lookup cache hit for view '_Layout' in controller 'Home'. 
+2016-11-10 20:44:40.6820|2|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action ChoViecDocSach.Controllers.HomeController.GetKindleFile (ChoViecDocSach) in 5109.7358ms 
+2016-11-10 20:44:40.7178|2|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 5178.013ms 200 text/html; charset=utf-8 
+2016-11-10 20:44:40.7213|9|Microsoft.AspNetCore.Server.Kestrel|DEBUG|Connection id "0HL09RICG7HDV" completed keep alive response. 
