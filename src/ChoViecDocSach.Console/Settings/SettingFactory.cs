@@ -1,12 +1,15 @@
+using System;
+
 namespace Onha.Kiet
 {
     public class SettingFactory
     {
-        public static GeneralSite Get(string hostdomain)
+        public static GeneralSite Get(string url)
         {
             GeneralSite setting = null;
+            var uri = new Uri(url); 
 
-            switch (hostdomain)
+            switch (uri.Host)
             {
                 case "thuvienhoasen.org":
                     setting = new ThuVienHoaSen();
@@ -31,6 +34,10 @@ namespace Onha.Kiet
                     break;
                 case "quangduc.com":
                     setting = new quangduc();
+                    break;
+                case "vnthuquan.net":
+                    setting = new vnthuquan();
+            
                     break;
             }
 

@@ -26,10 +26,10 @@ namespace Onha.Kiet
             //};
 
             /*
-   httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,application/xhtml+xml,application/xml");
-    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
-    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0");
-    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Charset", "ISO-8859-1");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,application/xhtml+xml,application/xml");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Charset", "ISO-8859-1");
 
             */
 
@@ -50,6 +50,15 @@ namespace Onha.Kiet
         public Task<string> GetStringAsync(string path)
         {
             return _client.GetStringAsync(path);
+        }
+
+        public Task<string> GetStringPostAsync(string path, string data)
+        {
+            StringContent queryString = new StringContent(data);
+            HttpResponseMessage response = _client.PostAsync(new Uri(path), queryString ).Result;
+
+            response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsStringAsync();
         }
 
         public Task<byte[]> DownloadFile(string path)

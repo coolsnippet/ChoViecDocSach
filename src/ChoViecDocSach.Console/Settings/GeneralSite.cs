@@ -10,21 +10,19 @@ namespace Onha.Kiet
         private IEnumerable<KeyValuePair<string, string>> links;
         protected string domainHost;
         protected Webber webber; // to download
-
         public GeneralSite()
         {
-
+            webber = new Webber(domainHost);
         }
 
-        public GeneralSite(string domainHost)
+        public GeneralSite(string domainHost) : this()
         {
             this.domainHost = domainHost;
         }
 
-        public Book CheckBookDownloaded(string firstpage)
+        public Book CheckBookDownloaded(string firstpage) 
         {
             var html = string.Empty;
-            var onlyOnePage = false;
             // 1. download
 
             // special for note
@@ -36,21 +34,10 @@ namespace Onha.Kiet
             }
 
             // continue as normal
-            webber = new Webber(domainHost);
-
-            try
-            {
-                 html = webber.GetStringAsync(firstpage).Result;
-            }
-            catch (System.Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex);
-                throw;
-            }
-           
+            html = GetResponse(firstpage);
 
             // 2. parse to get links of chapters
-            links = GetLinks(html);
+            // links = GetLinks(html);
             // 3. get content div
             var contentDiv = GetContentDiv(html);
             // 4. get book information: title, publisher, author
@@ -75,8 +62,7 @@ namespace Onha.Kiet
             }
 
             // continue as normal
-            webber = new Webber(domainHost);
-            html = webber.GetStringAsync(firstpage).Result;
+            html = GetResponse(firstpage);
 
             // 2. parse to get links of chapters
             links = GetLinks(html);
@@ -96,15 +82,15 @@ namespace Onha.Kiet
             book.TableOfContent = HtmlTableOfContent();
             // 7. loop and download each page per chapter
             var count = 1;
-            
+
             foreach (var link in links)
-            {              
+            {
                 // current chapter
                 System.Console.WriteLine(link.Key);
                 // 8. download each page/content          
                 if (!onlyOnePage)
                 {
-                    html = webber.GetStringAsync(link.Value).Result;
+                    html = GetResponse(link.Value);                                     
                 }
                 // 9. get main contain of chapter/page
                 var div = GetContentDiv(html, cleanUp: true);
@@ -151,6 +137,30 @@ namespace Onha.Kiet
 
             toc.AppendChild(ul);
             return toc;
+        }
+
+        protected string GetResponse(string url, string postData=null)
+        {
+            string html = string.Empty;
+
+            try
+            {
+                if (string.IsNullOrEmpty(postData))
+                {
+                    html = webber.GetStringAsync(url).Result;
+                }
+                else
+                {
+                    html = webber.GetStringPostAsync(url, postData).Result;
+                }
+            }
+            catch (System.Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex);
+                throw;
+            }
+
+            return html;
         }
 
 

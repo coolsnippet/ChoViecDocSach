@@ -38,7 +38,7 @@ namespace ChoViecDocSach.Controllers
                 }
                 else
                 {
-                    GeneralSite setting = SettingFactory.Get(firstPageUri.Host);                   
+                    GeneralSite setting = SettingFactory.Get(url);                   
                     
                     if (setting != null)
                     {

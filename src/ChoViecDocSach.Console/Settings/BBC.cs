@@ -84,10 +84,10 @@ namespace Onha.Kiet
                         }
                         node.SetAttributeValue("src", imageFile); // modify the name in source
                     }
-                    catch (System.AggregateException ex)
-                    {
-                        // node.RemoveChild(node);
-                    }
+                    // catch (System.AggregateException ex)
+                    // {
+                    //     // node.RemoveChild(node);
+                    // }
                     finally
                     {
 

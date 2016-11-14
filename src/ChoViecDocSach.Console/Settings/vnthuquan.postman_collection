@@ -1,0 +1,56 @@
+{
+	"id": "bf10dd84-cdb9-10fb-8357-0f99424dc35a",
+	"name": "vnthuquan",
+	"description": "",
+	"order": [
+		"09d49ee2-6885-d36a-c083-85bdbf757666",
+		"99a90878-53c5-261b-c2db-841ad392d015"
+	],
+	"folders": [],
+	"timestamp": 1479079039135,
+	"owner": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "09d49ee2-6885-d36a-c083-85bdbf757666",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "http://vnthuquan.net/truyen/chuonghoi_moi.aspx",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "bf10dd84-cdb9-10fb-8357-0f99424dc35a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://vnthuquan.net/truyen/chuonghoi_moi.aspx",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1479079039134,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "tuaid=3452&chuongid=1"
+		},
+		{
+			"id": "99a90878-53c5-261b-c2db-841ad392d015",
+			"headers": "",
+			"url": "http://vnthuquan.net/truyen/truyen.aspx?tid=2qtqv3m3237nnn2ntn1n31n343tq83a3q3m3237nvn",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "bf10dd84-cdb9-10fb-8357-0f99424dc35a",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://vnthuquan.net/truyen/truyen.aspx?tid=2qtqv3m3237nnn2ntn1n31n343tq83a3q3m3237nvn",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1479079047207,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
