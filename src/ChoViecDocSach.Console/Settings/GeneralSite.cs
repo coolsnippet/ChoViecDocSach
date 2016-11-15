@@ -7,7 +7,7 @@ namespace Onha.Kiet
 {
     public abstract class GeneralSite
     {
-        private IEnumerable<KeyValuePair<string, string>> links;
+        protected IEnumerable<KeyValuePair<string, string>> links;
         protected string domainHost;
 
         protected Webber webber;
@@ -46,7 +46,7 @@ namespace Onha.Kiet
 
             try
             {
-                 html = dataDeligate(firstpage, "").Result;
+                 html = dataDeligate(firstpage).Result;
             }
             catch (System.Exception ex)
             {
@@ -56,7 +56,7 @@ namespace Onha.Kiet
            
 
             // 2. parse to get links of chapters
-            links = GetLinks(html);
+            // links = GetLinks(html);
             // 3. get content div
             var contentDiv = GetContentDiv(html);
             // 4. get book information: title, publisher, author
@@ -81,10 +81,12 @@ namespace Onha.Kiet
             }
 
             // continue as normal
-            html = dataDeligate(firstpage, "").Result;
+            html = dataDeligate(firstpage).Result;
 
             // 2. parse to get links of chapters
-            links = GetLinks(html);
+            if (links== null)
+                links = GetLinks(html);
+
             // 3. get content div
             var contentDiv = GetContentDiv(html);
             // 4. get book information: title, publisher, author
@@ -109,7 +111,7 @@ namespace Onha.Kiet
                 // 8. download each page/content          
                 if (!onlyOnePage)
                 {
-                    html = dataDeligate(link.Value, "").Result;
+                    html = dataDeligate(link.Value).Result;
                 }
                 // 9. get main contain of chapter/page
                 var div = GetContentDiv(html, cleanUp: true);
@@ -136,7 +138,50 @@ namespace Onha.Kiet
         // and different structure to get links of table of content
         abstract protected IEnumerable<KeyValuePair<string, string>> GetLinks(string htmlContent);
         abstract protected Book GetBookInformation(HtmlNode contentNode);
-        abstract protected List<KeyValuePair<string, byte[]>> FixImages(HtmlNode div);
+        protected virtual List<KeyValuePair<string, byte[]>> FixImages(HtmlNode div)
+        {
+            var imgNodes = div.Descendants("img");// .SelectNodes("//img");
+            var images = new List<KeyValuePair<string, byte[]>>();
+
+            foreach (var node in imgNodes)
+            {
+                var imagePath = node.GetAttributeValue("data-original", "");
+                if (string.IsNullOrEmpty(imagePath))
+                    imagePath = node.GetAttributeValue("src", "");
+
+                var imageFile = System.IO.Path.GetFileName(imagePath);
+
+                if (!FileNameSanitizer.IsBadName(imageFile))
+                {
+                    var imageBytesTask = webber.DownloadFile(imagePath);
+                    byte[] imageBytes = null;
+
+                    try
+                    {
+                        imageBytes = imageBytesTask.Result;
+
+                        if (imageBytesTask.Status != System.Threading.Tasks.TaskStatus.Faulted)
+                        {
+                            images.Add(new KeyValuePair<string, byte[]>(imageFile, imageBytes));
+                        }
+                        node.SetAttributeValue("src", imageFile); // modify the name in source
+                    }
+                    // catch (System.AggregateException ex)
+                    // {
+                    //     System.Console.WriteLine(ex);
+                    //     // node.RemoveChild(node);
+                    // }
+                    finally
+                    {
+
+                    }
+
+
+                }
+            }
+
+            return images;
+        }
 
         private HtmlNode HtmlTableOfContent()
         {

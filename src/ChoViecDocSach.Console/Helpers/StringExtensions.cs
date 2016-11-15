@@ -77,5 +77,11 @@ namespace Onha.Kiet
                 return true;
             }
         }
+
+        public static string RemoveCatrigeReturn(this string data)
+        {
+            var badChars = new char[] { '\r', '\n', ' '};
+            return data.Trim(badChars).Replace("\r","").Replace("\n","").Replace("\t", "");
+        }
     }
 }

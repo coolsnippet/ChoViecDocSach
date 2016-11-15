@@ -2,12 +2,13 @@ using System;
 //using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 
 namespace Onha.Kiet
 {
-   public delegate Task<string> GetDataDeligate(string url, string dataBody);
+   public delegate Task<string> GetDataDeligate(string url);
    public class Webber
     {
         HttpClient _client;
@@ -48,15 +49,16 @@ namespace Onha.Kiet
 
         }
 
-        public Task<string> GetStringAsync(string path, string data)
+        public Task<string> GetStringAsync(string path)
         {
             return _client.GetStringAsync(path);
         }
 
-        public Task<string> GetStringPostAsync(string path, string data)
+        public Task<string> GetStringPostAsync(string path, string data, string contentType = "application/x-www-form-urlencoded")
         {
-            StringContent queryString = new StringContent(data);
-            HttpResponseMessage response = _client.PostAsync(new Uri(path), queryString ).Result;
+            StringContent queryString = new StringContent(data, Encoding.UTF8, contentType);
+            
+            HttpResponseMessage response = _client.PostAsync(new Uri(path), queryString ).Result; // content type here http://stackoverflow.com/questions/10679214/how-do-you-set-the-content-type-header-for-an-httpclient-request
 
             response.EnsureSuccessStatusCode();
             return response.Content.ReadAsStringAsync();

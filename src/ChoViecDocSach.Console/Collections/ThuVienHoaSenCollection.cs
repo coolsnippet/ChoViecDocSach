@@ -14,7 +14,7 @@ namespace Onha.Kiet
 
             do
             {   
-                var html = webber.GetStringAsync(url, "").Result;
+                var html = webber.GetStringAsync(url).Result;
                 var doc = new HtmlDocument();  
                 doc.LoadHtml(html);
 

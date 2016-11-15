@@ -30,23 +30,41 @@ namespace Onha.Kiet
         const string DOMAIN_HOST = @"http://vnthuquan.net/";
         public vnthuquan() : base(DOMAIN_HOST)
         {
-            dataDeligate = webber.GetStringPostAsync;
+            dataDeligate = (path) =>
+                {
+                    var url = @"http://vnthuquan.net/truyen/chuonghoi_moi.aspx";
+                    return webber.GetStringPostAsync(url, path); 
+                } ;
         }
 
-        public virtual Book CheckBookDownloaded(string firstpage)
+        public override Book CheckBookDownloaded(string firstpage)
         {
+            // get the link and post at below url with that link in body
             //http://vnthuquan.net/truyen/chuonghoi_moi.aspx
-            //with databody
 
-            return base.CheckBookDownloaded(firstpage);
+            var urlBook = GetSecretLink(firstpage);
+             
+            if (links== null)
+            {
+                links = GetLinks(webber.GetStringAsync(firstpage).Result);
+            }
+            
+            return base.CheckBookDownloaded(urlBook); // we need to post again to get data 
         }
 
-        public virtual Book GetOneWholeHtml(string firstpage)
+        public override Book GetOneWholeHtml(string firstpage)
         {
+            // get the link and post at below url with that link in body
             //http://vnthuquan.net/truyen/chuonghoi_moi.aspx
-            // with databody
+            
+            var urlBook = GetSecretLink(firstpage);
 
-            return base.GetOneWholeHtml(firstpage);
+            if (links== null)
+            {
+                links = GetLinks(webber.GetStringAsync(firstpage).Result);
+            }
+
+            return base.GetOneWholeHtml(urlBook);
         }
 
         #region Override methods
@@ -97,7 +115,7 @@ namespace Onha.Kiet
             book.Publisher = "Việt Nam Thư Quán";
 
             var findTitle = contentNode.SelectSingleNode("//*[@class='chuto40']"); 
-            var findAuthor = contentNode.SelectSingleNode("//li[@class='tacgiaphai']");
+            var findAuthor = contentNode.SelectSingleNode("//*[@class='tacgiaphai']");
             
             if (findTitle!=null)
                 book.Title = findTitle.InnerText;
@@ -107,50 +125,7 @@ namespace Onha.Kiet
 
             return book;
         }
-
-        protected override List<KeyValuePair<string, byte[]>> FixImages(HtmlNode div)
-        {
-            var imgNodes = div.Descendants("img");// .SelectNodes("//img");
-            var images = new List<KeyValuePair<string, byte[]>>();
-
-            foreach (var node in imgNodes)
-            {
-                var imagePath = node.GetAttributeValue("data-original", "");
-                if (string.IsNullOrEmpty(imagePath))
-                    imagePath = node.GetAttributeValue("src", "");
-
-                var imageFile = System.IO.Path.GetFileName(imagePath);
-
-                if (!FileNameSanitizer.IsBadName(imageFile))
-                {
-                    var imageBytesTask = webber.DownloadFile(imagePath);
-                    byte[] imageBytes = null;
-
-                    try
-                    {
-                        imageBytes = imageBytesTask.Result;
-
-                        if (imageBytesTask.Status != System.Threading.Tasks.TaskStatus.Faulted)
-                        {
-                            images.Add(new KeyValuePair<string, byte[]>(imageFile, imageBytes));
-                        }
-                        node.SetAttributeValue("src", imageFile); // modify the name in source
-                    }
-                    catch (System.AggregateException ex)
-                    {
-                        // node.RemoveChild(node);
-                    }
-                    finally
-                    {
-
-                    }
-
-
-                }
-            }
-
-            return images;
-        }
+     
 
         // the first call only have html template 
         // <div id="fontchu" class="truyen_text">
@@ -161,26 +136,20 @@ namespace Onha.Kiet
         // 					    }
         // </SCRIPT>
         // </div>
-        public string GetSecretLink(string url)
+        private string GetSecretLink(string url)
         {
-            var link = string.Empty; // 
+            var link = string.Empty; // secret link
 
-            var htmlContent = dataDeligate(url, "").Result; // get the content
+            var htmlContent = webber.GetStringAsync(url).Result; // get the content
             
             var html = new HtmlDocument();
             html.LoadHtml(htmlContent); // load it
 
-            var root = html.DocumentNode;
-
-            // var root = html.DocumentNode;
-            // var div = root.SelectSingleNode("//div[@id='fontchu' and class='truyen_text']");
-            var div = root.SelectSingleNode("//div[@id='fontchu']"); //class="story-body" //span[@style='font-size: medium;']");
-            link = div.InnerText.ParseExact(@"<SCRIPT>
-       						 if(firstload == false ){
-     						   noidung1('{0}');
-   							     
-    						    }
- 								</SCRIPT>")[0];
+            var root = html.DocumentNode;            
+            var div = root.SelectSingleNode("//div[@id='fontchu']"); 
+            
+            link = div.InnerText.RemoveCatrigeReturn().ParseExact(@"if(firstload == false ){        noidung1('{0}');                }")[0];
+              
             return link;
         }
         #endregion

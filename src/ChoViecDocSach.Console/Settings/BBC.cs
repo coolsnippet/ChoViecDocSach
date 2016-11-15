@@ -56,49 +56,6 @@ namespace Onha.Kiet
             return book;
         }
 
-        protected override List<KeyValuePair<string, byte[]>> FixImages(HtmlNode div)
-        {
-            var imgNodes = div.Descendants("img");// .SelectNodes("//img");
-            var images = new List<KeyValuePair<string, byte[]>>();
-
-            foreach (var node in imgNodes)
-            {
-                var imagePath = node.GetAttributeValue("data-original", "");
-                if (string.IsNullOrEmpty(imagePath))
-                    imagePath = node.GetAttributeValue("src", "");
-
-                var imageFile = System.IO.Path.GetFileName(imagePath);
-
-                if (!FileNameSanitizer.IsBadName(imageFile))
-                {
-                    var imageBytesTask = webber.DownloadFile(imagePath);
-                    byte[] imageBytes = null;
-
-                    try
-                    {
-                        imageBytes = imageBytesTask.Result;
-
-                        if (imageBytesTask.Status != System.Threading.Tasks.TaskStatus.Faulted)
-                        {
-                            images.Add(new KeyValuePair<string, byte[]>(imageFile, imageBytes));
-                        }
-                        node.SetAttributeValue("src", imageFile); // modify the name in source
-                    }
-                    // catch (System.AggregateException ex)
-                    // {
-                    //     // node.RemoveChild(node);
-                    // }
-                    finally
-                    {
-
-                    }
-
-
-                }
-            }
-
-            return images;
-        }
         #endregion
 
     }
