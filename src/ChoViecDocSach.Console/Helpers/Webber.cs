@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Onha.Kiet
 {
+   public delegate Task<string> GetDataDeligate(string url, string dataBody);
    public class Webber
     {
         HttpClient _client;
@@ -47,7 +48,7 @@ namespace Onha.Kiet
 
         }
 
-        public Task<string> GetStringAsync(string path)
+        public Task<string> GetStringAsync(string path, string data)
         {
             return _client.GetStringAsync(path);
         }

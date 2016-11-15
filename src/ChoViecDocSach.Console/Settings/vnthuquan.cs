@@ -30,6 +30,7 @@ namespace Onha.Kiet
         const string DOMAIN_HOST = @"http://vnthuquan.net/";
         public vnthuquan() : base(DOMAIN_HOST)
         {
+            dataDeligate = webber.GetStringPostAsync;
         }
 
         #region Override methods
@@ -55,14 +56,15 @@ namespace Onha.Kiet
             var div = root.SelectSingleNode("//div[@id='saomu']");
 
             if (div != null)
-            {
+            { 
+                System.Console.WriteLine("noidung1('tuaid=3452&chuongid=40')".ParseExact(@"noidung1('{0}')"));
                 return div.Descendants("li")
                            .Where(n => n.Attributes["onClick"] != null)
                                 
                            .Select(item => new KeyValuePair<string, string>(
-                               System.Net.WebUtility.HtmlDecode(item.InnerHtml), //key is name of each chapter
-                               item.Attributes["onClick"].Value // value is the link
-
+                               System.Net.WebUtility.HtmlDecode(item.InnerText), //key is name of each chapter
+                               item.Attributes["onClick"].Value//.ParseExact(@"noidung1('{0}')")[0] // value is the link
+                                                                            //"noidung1('tuaid=3452&chuongid=1')"
                            ));
             }
 
@@ -147,7 +149,7 @@ namespace Onha.Kiet
         {
             var link = string.Empty; // 
 
-            var htmlContent = base.GetResponse(url); // get the content
+            var htmlContent = dataDeligate(url, "").Result; // get the content
             
             var html = new HtmlDocument();
             html.LoadHtml(htmlContent); // load it
