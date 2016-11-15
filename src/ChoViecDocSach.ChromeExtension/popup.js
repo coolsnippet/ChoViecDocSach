@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   getCurrentTabUrl(function (url) {
     //alert(url);
     var pageUrl = "http://localhost:5000/Home/GetKindleFile?url=" + url;
-    //var pageUrl = "http://localhost/choviecdocsach/Home/GetKindleFile?url=" + url;
+    // var pageUrl = "http://localhost/choviecdocsach/Home/GetKindleFile?url=" + url;
 
     // alert(pageUrl);
     httpGet(pageUrl);

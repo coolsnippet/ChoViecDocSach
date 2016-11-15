@@ -43,7 +43,7 @@ namespace Onha.Kiet
             //http://vnthuquan.net/truyen/chuonghoi_moi.aspx
 
             var urlBook = GetSecretLink(firstpage);
-             
+
             if (links== null)
             {
                 links = GetLinks(webber.GetStringAsync(firstpage).Result);
@@ -75,7 +75,7 @@ namespace Onha.Kiet
 
 
             var parts = Regex.Split(htmlContent, "--!!tach_noi_dung!!--");
-            html.LoadHtml(parts[1]); 
+            html.LoadHtml(parts[2]); 
 
             return html.DocumentNode;
         }
@@ -91,15 +91,19 @@ namespace Onha.Kiet
 
             if (div != null)
             { 
-                
-                return div.Descendants("li")
-                           .Where(n => n.Attributes["onClick"] != null)
-                                
-                           .Select(item => new KeyValuePair<string, string>(
-                               System.Net.WebUtility.HtmlDecode(item.InnerText), //key is name of each chapter
-                               item.Attributes["onClick"].Value.ParseExact(@"noidung1('{0}')")[0] // value is the link
-                                                                            //"noidung1('tuaid=3452&chuongid=1')"
-                           ));
+                var chapteritems =div.Descendants("li");
+
+                if (chapteritems!= null && chapteritems.Count() >0)
+                { 
+                    return  chapteritems
+                            .Where(n => n.Attributes["onClick"] != null)
+                                    
+                            .Select(item => new KeyValuePair<string, string>(
+                                System.Net.WebUtility.HtmlDecode(item.InnerText), //key is name of each chapter
+                                item.Attributes["onClick"].Value.ParseExact(@"noidung1('{0}')")[0] // value is the link
+                                                                                //"noidung1('tuaid=3452&chuongid=1')"
+                            ));
+                }
             }
 
             return null;

@@ -129,6 +129,7 @@
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Entities\Chapter.cs"
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Helpers\BookHelper.cs"
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Helpers\FileNameSanitizer.cs"
+"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Helpers\StringExtensions.cs"
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Helpers\VietnameseAccentsRemover.cs"
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Helpers\Webber.cs"
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Settings\BBC.cs"
@@ -142,3 +143,4 @@
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Settings\SettingFactory.cs"
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Settings\ThuVienHoaSen.cs"
 "C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Settings\vnexpress.cs"
+"C:\Kiet\test\ChoViecDocSach\src\ChoViecDocSach.Console\Settings\vnthuquan.cs"
