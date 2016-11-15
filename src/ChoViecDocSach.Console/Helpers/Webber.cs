@@ -2,11 +2,13 @@ using System;
 //using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 
 namespace Onha.Kiet
 {
+   public delegate Task<string> GetDataDeligate(string url);
    public class Webber
     {
         HttpClient _client;
@@ -26,10 +28,10 @@ namespace Onha.Kiet
             //};
 
             /*
-   httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,application/xhtml+xml,application/xml");
-    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
-    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0");
-    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Charset", "ISO-8859-1");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,application/xhtml+xml,application/xml");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 6.2; WOW64; rv:19.0) Gecko/20100101 Firefox/19.0");
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Charset", "ISO-8859-1");
 
             */
 
@@ -50,6 +52,16 @@ namespace Onha.Kiet
         public Task<string> GetStringAsync(string path)
         {
             return _client.GetStringAsync(path);
+        }
+
+        public Task<string> GetStringPostAsync(string path, string data, string contentType = "application/x-www-form-urlencoded")
+        {
+            StringContent queryString = new StringContent(data, Encoding.UTF8, contentType);
+            
+            HttpResponseMessage response = _client.PostAsync(new Uri(path), queryString ).Result; // content type here http://stackoverflow.com/questions/10679214/how-do-you-set-the-content-type-header-for-an-httpclient-request
+
+            response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsStringAsync();
         }
 
         public Task<byte[]> DownloadFile(string path)
