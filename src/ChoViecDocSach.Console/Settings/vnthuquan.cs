@@ -71,11 +71,9 @@ namespace Onha.Kiet
         protected override HtmlNode GetContentDiv(string htmlContent, bool cleanUp = false)
         {
             var html = new HtmlDocument();
-            // html.LoadHtml(htmlContent);
-
-
+            
             var parts = Regex.Split(htmlContent, "--!!tach_noi_dung!!--");
-            html.LoadHtml(parts[2]); 
+            html.LoadHtml(parts[1] +" "+ parts[2]); 
 
             return html.DocumentNode;
         }
