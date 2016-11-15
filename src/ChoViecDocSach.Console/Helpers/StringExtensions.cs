@@ -52,7 +52,7 @@ namespace Onha.Kiet
 
             for (tokenCount = 0; ; tokenCount++)
             {
-                string token = string.Format("}", tokenCount);
+                string token = string.Format("{{0}}", tokenCount);
                 if (!format.Contains(token)) break;
                 format = format.Replace(token,
                     string.Format("(?'group{0}'.*)", tokenCount));

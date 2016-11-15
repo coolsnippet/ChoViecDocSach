@@ -27,7 +27,7 @@ namespace Onha.Kiet
         }
 
 
-        public Book CheckBookDownloaded(string firstpage)
+        public virtual Book CheckBookDownloaded(string firstpage)
         {
             var html = string.Empty;
        
@@ -66,7 +66,7 @@ namespace Onha.Kiet
         }
 
         // get the all content of a book and return a book data
-        public Book GetOneWholeHtml(string firstpage)
+        public virtual Book GetOneWholeHtml(string firstpage)
         {
             var html = string.Empty;
             var onlyOnePage = false;

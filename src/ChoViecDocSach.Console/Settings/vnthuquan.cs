@@ -33,6 +33,22 @@ namespace Onha.Kiet
             dataDeligate = webber.GetStringPostAsync;
         }
 
+        public virtual Book CheckBookDownloaded(string firstpage)
+        {
+            //http://vnthuquan.net/truyen/chuonghoi_moi.aspx
+            //with databody
+
+            return base.CheckBookDownloaded(firstpage);
+        }
+
+        public virtual Book GetOneWholeHtml(string firstpage)
+        {
+            //http://vnthuquan.net/truyen/chuonghoi_moi.aspx
+            // with databody
+
+            return base.GetOneWholeHtml(firstpage);
+        }
+
         #region Override methods
         protected override HtmlNode GetContentDiv(string htmlContent, bool cleanUp = false)
         {
@@ -57,13 +73,13 @@ namespace Onha.Kiet
 
             if (div != null)
             { 
-                System.Console.WriteLine("noidung1('tuaid=3452&chuongid=40')".ParseExact(@"noidung1('{0}')"));
+                
                 return div.Descendants("li")
                            .Where(n => n.Attributes["onClick"] != null)
                                 
                            .Select(item => new KeyValuePair<string, string>(
                                System.Net.WebUtility.HtmlDecode(item.InnerText), //key is name of each chapter
-                               item.Attributes["onClick"].Value//.ParseExact(@"noidung1('{0}')")[0] // value is the link
+                               item.Attributes["onClick"].Value.ParseExact(@"noidung1('{0}')")[0] // value is the link
                                                                             //"noidung1('tuaid=3452&chuongid=1')"
                            ));
             }
