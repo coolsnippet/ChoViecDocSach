@@ -137,7 +137,7 @@ namespace Onha.Kiet
 
         // and different structure to get links of table of content
         abstract protected IEnumerable<KeyValuePair<string, string>> GetLinks(string htmlContent);
-        abstract protected Book GetBookInformation(HtmlNode contentNode);
+        abstract protected Book GetBookInformation(HtmlNode contentNode);        
         protected virtual List<KeyValuePair<string, byte[]>> FixImages(HtmlNode div)
         {
             var imgNodes = div.Descendants("img");// .SelectNodes("//img");
