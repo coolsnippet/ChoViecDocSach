@@ -67,7 +67,7 @@ namespace Onha.Kiet
             var doc = contentNode.OwnerDocument.DocumentNode;
 
             var badChars = new char[] { '\r', '\n', ' ' };
-            var title = doc.SelectSingleNode("//*[@class='tile']");
+            var title = doc.SelectSingleNode("//*[contains(@class,'navTreeItem navTreeTopNode')]"); // tile
             var author = doc.SelectSingleNode("//*[@id='parent-fieldname-description']");
 
             book.Title = "langmai";
