@@ -35,8 +35,8 @@ namespace Onha.Kiet
 
             */
 
-            _client = new HttpClient();
-            _client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,application/xhtml+xml,application/xml");
+            _client = new HttpClient();           
+            // _client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "text/html,application/xhtml+xml,application/xml"); 
             _client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip, deflate");
             _client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Chrome/54.0.2840.71 (Macintosh; Intel Mac OS X 10_12_1) Gecko/20100101 Firefox/19.0");
             _client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Charset", "ISO-8859-1");
@@ -51,6 +51,7 @@ namespace Onha.Kiet
 
         public Task<string> GetStringAsync(string path)
         {
+            
             return _client.GetStringAsync(path);
         }
 
@@ -64,8 +65,9 @@ namespace Onha.Kiet
             return response.Content.ReadAsStringAsync();
         }
 
-        public Task<byte[]> DownloadFile(string path)
+        public Task<byte[]> DownloadFile(string path, string mime = "image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5")
         {
+            _client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", mime);
             Task<byte[]> buffer =  _client.GetByteArrayAsync(path); 
             
             return buffer;

@@ -166,11 +166,11 @@ namespace Onha.Kiet
                         }
                         node.SetAttributeValue("src", imageFile); // modify the name in source
                     }
-                    // catch (System.AggregateException ex)
-                    // {
-                    //     System.Console.WriteLine(ex);
-                    //     // node.RemoveChild(node);
-                    // }
+                    catch (System.AggregateException ex)
+                    {
+                        System.Console.WriteLine(ex);
+                        // node.RemoveChild(node);
+                    }
                     finally
                     {
 
