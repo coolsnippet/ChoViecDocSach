@@ -117,9 +117,14 @@
 <a id="markdown-8-sublime" name="8-sublime"></a>
 ### 8. sublime	
 	from http://www.bonusbits.com/wiki/HowTo:Add_HTTP_Proxy_to_Package_Control_for_Sublime_Text
-
+	for Mac:
+		Browse Preferences | Package Settings | Package Control | Settings Default
 	I do:
-	Browse Preferences | Package Settings | Package Control | Settings Default
+		Browse Preferences | Package Settings | Package Control | Settings Default
+
+	for PC: from: https://packagecontrol.io/docs/settings
+		I do: Preferences > Package Settings > Package Control > Settings – Default
+	
 	and add
 	"http_proxy": "http://10.160.0.45:80"
 
