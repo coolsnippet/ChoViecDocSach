@@ -27,3 +27,6 @@ NuGet feed v2 (VS 2013 and earlier / NuGet 2.x): https://www.nuget.org/api/v2
              http://stackoverflow.com/questions/11553591/visual-studio-c-nuget-unable-to-connect-to-remote-server
             
 
+### and then uncheck other nuget sources (feed)
+
+http://stackoverflow.com/questions/37054469/nuget-package-feed-vsts-exception-system-aggregateexception-thrown-when-t
