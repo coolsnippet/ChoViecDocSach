@@ -17,6 +17,8 @@
         10. [10. install typing behind corporate proxy](#10-install-typing-behind-corporate-proxy)
         11. [11. vs code setting sync behind the proxy](#11-vs-code-setting-sync-behind-the-proxy)
         12. [12. calibre behind proxy](#12-calibre-behind-proxy)
+        13. [13. nuget (Visual studio 2015)](#13-nuget-visual-studio-2015)
+        14. [14. linqpad](#14-linqpad)
 
 <!-- /TOC -->
 
@@ -187,3 +189,29 @@
 	You could also set it as a user variable for the current user.
 
 
+<a id="markdown-13-nuget-visual-studio-2015" name="13-nuget-visual-studio-2015"></a>
+### 13. nuget (Visual studio 2015)
+	go here: %appdata%\NuGet
+	chage the proxy line:	
+	<configuration>
+		<!-- stuff -->
+		<config>
+			<add key="http_proxy" value="http://my.proxy.address:port" />
+			<add key="http_proxy.user" value="mydomain\myUserName" />
+			<add key="http_proxy.password" value="base64encodedHopefullyEncryptedPassword" />
+		</config>
+		<!-- stuff -->
+	</configuration>
+	
+	reading: http://stackoverflow.com/questions/9232160/nuget-behind-proxy
+
+<a id="markdown-14-linqpad" name="14-linqpad"></a>
+### 14. linqpad	
+	If you first configure your proxy using the UI, you'll see that file appear and can then copy its contents.
+	edit > preference > web proxy and updates
+	then	
+	go here: %localappdata%\LINQPad\proxy.xml
+	
+	and change that
+	
+	reading: http://forum.linqpad.net/discussion/986/how-do-i-programmatically-configuring-proxy-settings
