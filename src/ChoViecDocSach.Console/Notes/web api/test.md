@@ -21,5 +21,7 @@ ASP.NET Web API has 2 primary mechanisms for dealing with controller dependency:
     IDependencyResolver
 
     
+and with moq with repository: 
+https://www.safaribooksonline.com/library/view/aspnet-mvc-4/9781430247739/Sec70_9781430247739_Ch09.xhtml 
 
     
