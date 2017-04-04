@@ -191,7 +191,16 @@
 
 <a id="markdown-13-nuget-visual-studio-2015" name="13-nuget-visual-studio-2015"></a>
 ### 13. nuget (Visual studio 2015)
+
 	go here: %appdata%\NuGet
+	
+	1. close Visual Studio, delete nuget.config file and start again!
+	 	known issue: https://docs.microsoft.com/en-us/nuget/release-notes/known-issues 
+
+		 The NuGet.Config file in your %AppData%\NuGet\ folder has accidentally been emptied. To fix this: Close Visual Studio 2015, delete the NuGet.Config file in the %AppData%\NuGet\ folder and restart Visual Studio. A new NuGet.Config file will be generated and you will be able to proceed.
+
+    2. (I tried this but the package of the company didn't work but the normal package sources are fine)		 
+	
 	chage the proxy line:	
 	<configuration>
 		<!-- stuff -->
