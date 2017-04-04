@@ -199,6 +199,19 @@
 
 		 The NuGet.Config file in your %AppData%\NuGet\ folder has accidentally been emptied. To fix this: Close Visual Studio 2015, delete the NuGet.Config file in the %AppData%\NuGet\ folder and restart Visual Studio. A new NuGet.Config file will be generated and you will be able to proceed.
 
+		 and this is the content of that file:
+
+<?xml version="1.0" encoding="utf-8"?>
+	<configuration>
+	<packageSources>
+		<add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+		<add key="UA release" value="http://vopcgptbsd01.global.ual.com/foundationsnugetserverrelease/nuget" />
+	</packageSources>
+	<disabledPackageSources>
+		<add key="Microsoft and .NET" value="true" />
+	</disabledPackageSources>
+</configuration>
+
     2. (I tried this but the package of the company didn't work but the normal package sources are fine)		 
 	
 	chage the proxy line:	
