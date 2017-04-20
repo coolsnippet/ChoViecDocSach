@@ -320,7 +320,7 @@ namespace Onha.Kiet
 
             // 1. html document for ouputfile
             var output_html = new HtmlDocument();
-            output_html.DocumentNode.AppendChild(HtmlNode.CreateNode("<html><head><meta charset=\"UTF-8\"></head><body></body></html>"));
+            output_html.DocumentNode.AppendChild(HtmlNode.CreateNode("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><meta charset=\"UTF-8\"></head><body></body></html>"));
             var output_head = output_html.DocumentNode.SelectSingleNode("/html/head");
             output_head.AppendChild(HtmlNode.CreateNode(string.Format("<title>{0}</title>", book.Title)));
             output_head.AppendChild(HtmlNode.CreateNode(string.Format("<style>{0}</style>", ".center { text-align: center; } .pagebreak { page-break-before: always; }")));
