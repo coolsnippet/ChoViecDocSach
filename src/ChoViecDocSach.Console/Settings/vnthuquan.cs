@@ -32,7 +32,7 @@ namespace Onha.Kiet
         {
             dataDeligate = (path) =>
                 {
-                    var url = @"http://vnthuquan.net/truyen1/chuonghoi_moi.aspx";
+                    var url = @"http://vnthuquan.net/truyen0/chuonghoi_moi.aspx";
                     return webber.GetStringPostAsync(url, path); 
                 } ;
         }
