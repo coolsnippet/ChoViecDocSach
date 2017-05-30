@@ -68,9 +68,22 @@ namespace Onha.Kiet
         public Task<byte[]> DownloadFile(string path, string mime = "image/png, image/svg+xml, image/*;q=0.8, */*;q=0.5")
         {
             _client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", mime);
+
+            if (IsAbsoluteUrl(path))
+            {
+                var newClient = new HttpClient();
+                newClient.DefaultRequestHeaders.TryAddWithoutValidation("Accept", mime);
+                return newClient.GetByteArrayAsync(path);
+            }
+
             Task<byte[]> buffer =  _client.GetByteArrayAsync(path); 
             
             return buffer;
+        }
+        private bool IsAbsoluteUrl(string url)
+        {
+            Uri result;
+            return Uri.TryCreate(url, UriKind.Absolute, out result);
         }
     }
 }
